@@ -1,6 +1,7 @@
 # Frontend
 
 Ini adalah contoh gambaran struktur proyek untuk FrontEnd. Disesuaikan lagi aja. Isinya juga disesuaikan lagi aja.
+Untuk melihat struktur proyek ini, klik [CODE] sebelah [PREVIEW] di README.md
 
 frontend/
 ├── public/
