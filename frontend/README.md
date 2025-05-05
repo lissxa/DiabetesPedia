@@ -1,5 +1,7 @@
 # Frontend
 
+Ini adalah contoh gambaran struktur proyek untuk FrontEnd. Disesuaikan lagi aja. Isinya juga disesuaikan lagi aja.
+
 frontend/
 ├── public/
 │   └── index.html
@@ -20,7 +22,3 @@ frontend/
 ├── postcss.config.js
 ├── vite.config.js
 └── package.json
-
-
-
-
