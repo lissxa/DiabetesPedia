@@ -1,0 +1,6 @@
+#blog-page header {
+    background-image: url('../public/images/blogs/banner-bg.jpg') !important;
+
+#search-blog-section {
+    transform: translate(-50%,50%) !important;
+}

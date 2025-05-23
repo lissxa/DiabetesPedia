@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SugarTrackr - Dashboard</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward,check,close,error,info,star,star_half,stars_2,warning" />
+
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/dashboard.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body class="bg-white" id="dashboard-page">
+    <header class="bg-image-settings position-relative">
+        <div class="linear-gradient-bg blue-gradient-bg position-absolute top-0 start-0 w-100 h-100 z-0"></div>
+        <nav class="navbar navbar-expand-lg position-relative z-3 py-4 bg-white">
+            <div class="container-fluid padding-common">
+                <a class="navbar-brand" href="#">
+                    <img src="./src/public/images/logo/small logo.png" width="180" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex gap-2">
+                        <button class="btn text-primary fw-semibold text-decoration-underline" type="button">Log
+                            In</button>
+                        <button class="btn btn-primary fw-semibold" type="button">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron padding-common py-5 w-100 position-relative z-1">
+            <div class="jumbotron-text-action w-100 h-100 d-flex flex-column align-items-center gap-2 text-center">
+                <h6>
+                    <span class="badge text-bg-warning fs-6">Dashboard</span>
+                </h6>
+                <h1 class="fw-bold text-white">One Log At A Time To Guide Your Health Decision</h1>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="d-flex flex-column gap-5 pt-5">
+        <section id="latest-prediction-summary" class="padding-common d-flex flex-column gap-5">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="src/public/images/dashboard/user-profile.png" width="48" height="48" alt=""
+                        class="rounded-circle">
+                    <h5 class="fs-3 fw-bold">Hello, Jennifer!</h5>
+                </div>
+                <div class="button-group d-flex align-items-center gap-3">
+                    <button type="button" class="btn btn-lg btn-secondary w-fit-content">View recommendation</button>
+                    <button class="btn btn-primary fw-semibold btn-lg" type="submit">Log New Entry</button>
+                </div>
+            </div>
+            <div class="row justify-content-between row-gap-4">
+                <div class="col-md-12 col-lg-3">
+                    <div class="d-flex flex-column justify-content-end h-100">
+                        <h2 class="fw-bold">Latest Prediction</h2>
+                        <p class="caption opacity-75">13/08/2024 13:10</p>
+                        <h6 class="fs-5 mt-2">Your Risk: <span class="text-warning fw-bold">Prediabetes</span></h6>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    <div class="position-relative w-100 mt-5">
+                        <div class="emoji-bar-images d-flex justify-content-between position-absolute w-100">
+                            <img class="p-3 bg-white rounded-circle ms-3"
+                                src="src/public/images/dashboard/smile-emoji.png" width="92" height="92" alt=""
+                                class="rounded-circle">
+                            <img class="p-3 bg-white rounded-circle" src="src/public/images/dashboard/flat-emoji.png"
+                                width="92" height="92" alt="" class="rounded-circle">
+                            <img class="p-3 bg-white rounded-circle me-3"
+                                src="src/public/images/dashboard/sad-emoji.png" width="92" height="92" alt=""
+                                class="rounded-circle">
+                        </div>
+                        <div class="diabetes-level-bar rounded-3 w-100"></div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <p class="text-success fw-bold">Normal</p>
+                            <p class="text-warning fw-bold">Prediabetes</p>
+                            <p class="text-danger fw-bold">Diabetes</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="bg-lightgrey03 padding-common py-5" id=" result-detail-container">
+            <div class="row row-gap-4">
+                <div class="col-xxl-9">
+                    <div class="row row-gap-4">
+                        <section id="result-general-info" class="col-md-12 col-lg-6">
+                            <div class="card rounded-4 border-0 bg-white p-3 gap-3 h-100">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row row-gap-4">
+                                            <div class="col-6 p-0">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                                        star
+                                                    </span>
+                                                    <div>
+                                                        <h4 class="fs-6">Weight</h4>
+                                                        <p id="general-info-weight" class="fs-3 fw-bold">58 kg</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 p-0">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                                        star
+                                                    </span>
+                                                    <div>
+                                                        <h4 class="fs-6">Height</h4>
+                                                        <p id="general-info-weight" class="fs-3 fw-bold">160 cm</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 p-0">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                                        star
+                                                    </span>
+                                                    <div>
+                                                        <h4 class="fs-6">Age</h4>
+                                                        <p id="general-info-age" class="fs-3 fw-bold">25 years</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 p-0">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                                        star
+                                                    </span>
+                                                    <div>
+                                                        <h4 class="fs-6">Gender</h4>
+                                                        <p id="general-info-gender" class="fs-3 fw-bold">Female</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 p-0">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                                        star
+                                                    </span>
+                                                    <div>
+                                                        <h4 class="fs-6">Income</h4>
+                                                        <span class="d-flex gap-2 align-items-end">
+                                                            <p id="general-info-income" class="fs-3 fw-bold">Rp 80,000,000</p>
+                                                            <span class="fs-6 fw-bold text-uppercase opacity-50">/ YEAR</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">General Info</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="result-general-health" class="col-md-12 col-lg-6">
+                            <div class="card rounded-4 border-0 bg-white p-3 gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex gap-2 flex-wrap align-items-center flex-0">
+                                    <p
+                                        class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                        Excellent</p>
+                                    <p
+                                        class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                        Very Good</p>
+                                    <p
+                                        class="fs-5 fw-bold bg-lightgreen h-fit-content text-success border-lightgreen px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                        Good</p>
+                                    <p
+                                        class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                        Fair</p>
+                                    <p
+                                        class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                        Poor</p>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">General Health</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <section id="result-blood-pressure" class="col-md-12 col-lg-6">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body p-0 px-3 d-flex flex-column gap-4 justify-content-around">
+                                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Normal</p>
+                                        <p
+                                            class="fs-5 fw-bold bg-lightyellow h-fit-content text-warning border-lightyellow px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Elevated</p>
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Hypertension Stage 1</p>
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Hypertension Stage 2</p>
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Hypertensive Crisis</p>
+                                    </div>
+
+                                    <div class="row row-gap-2">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">SYS</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="blood-pressure-systolic" class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">DIA</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="blood-pressure-diastolic" class="fs-2 fw-bold result-number-size">80</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Blood Pressure Category</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="result-cholesterol-level" class="col-md-12 col-lg-6">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column gap-4">
+                                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Heart-Healthy</p>
+                                        <p
+                                            class="fs-5 fw-bold bg-lightyellow h-fit-content text-warning border-lightyellow px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            At Risk</p>
+                                        <p
+                                            class="fs-6 bg-lightgrey02 h-fit-content text-body-secondary px-4 py-2 rounded-3 w-fit-content general-health-level">
+                                            Dangerous</p>
+                                    </div>
+
+                                    <div class="row row-gap-2">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">Total Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="total-cholesterol" class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">Triglycerides</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="triglycerides" class="fs-2 fw-bold result-number-size">80</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">HDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="hdl-cholesterol" class="fs-2 fw-bold result-number-size">80</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <h4 class="fs-6 caption">LDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p id="ldl-cholesterol" class="fs-2 fw-bold result-number-size">80</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex row-gap-2 justify-content-between flex-wrap">
+                                    <div class="px-3">
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+                                    <button type="button" class="btn text-black fw-semibold text-decoration-underline"
+                                        data-bs-toggle="modal" data-bs-target="#cholesteralDetailModal">
+                                        View Detail
+                                    </button>
+                                </div>
+
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Blood Pressure Category</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-xxl-3">
+                    <div class="row row-gap-4 h-100" id="second-group-result">
+                        <section id="result-cholesterol-check" class="col-sm-12 col-md-6 col-lg-4 col-xxl-12">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <span class="material-symbols-rounded check">check</span>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Cholesterol Check</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="result-heart-disease" class="col-sm-12 col-md-6 col-lg-4 col-xxl-12">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <span class="material-symbols-rounded check ">check</span>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Heart Disease Or Attack</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="result-difficulty-walking" class="col-sm-12 col-md-12 col-lg-4 col-xxl-12">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <span class="material-symbols-rounded close">close</span>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Difficulty Walking</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <div class="col-xxl-12">
+                    <div class="row row-gap-4">
+                        <section id="result-physical-health" class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex column-gap-2 justify-content-between align-items-center">
+                                    <div>
+                                        <h4 class="fs-6 caption">Unwell Days</h4>
+                                        <span class="d-flex gap-1 align-items-baseline">
+                                            <p id="total-cholesterol" class="fs-2 fw-bold result-number-size">4</p>
+                                            <span class="fs-6 fw-bold text-uppercase opacity-50">DAYS</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Physical Health</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="result-physical-activity" class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-column gap-3 h-100 justify-content-between">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex column-gap-2 justify-content-between align-items-center">
+                                    <div>
+                                        <span class="d-flex gap-1 align-items-baseline">
+                                            <p id="total-cholesterol" class="fs-2 fw-bold result-number-size">3</p>
+                                            <span class="fs-6 fw-bold text-uppercase opacity-50">EXERCISES</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <div class="d-flex row-gap-2 justify-content-between align-items-baseline flex-wrap">
+                                        <h3 class="card-title fs-5">Physical Activity</h3>
+                                        <button type="button" class="btn text-black fw-semibold text-decoration-underline p-0">
+                                            View Detail
+                                        </button>
+                                    </div>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="result-bmi" class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="card rounded-4 border-0 bg-white p-3 d-flex flex-colum h-100 justify-content-betweenn gap-3">
+                                <div class="card-icon d-flex justify-content-between px-3 pt-2">
+                                    <span
+                                        class="material-symbols-rounded fs-3 text-primary p-2 rounded-circle bg-lightblue02 h-fit-content">
+                                        star
+                                    </span>
+                                    <a href"" type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltrip" data-bs-title="Text in tooltip"
+                                        aria-label="Hover or focus to see the tooltip">Tooltip with HTML</a>
+                                    <span class="material-symbols-rounded">
+                                        info
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex column-gap-2 justify-content-between align-items-center">
+                                    <div>
+                                        <p id="bmi" class="fs-2 fw-bold result-number-size text-danger">27.4</p>
+                                    </div>
+                                    <div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            Overweight</p>
+                                    </div>
+                                </div>
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="card-title fs-5">Bodu Mass Index (BMI)</h3>
+                                    <p class="card-text opacity-75">13/08/2024 13:10</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="modal fade" id="cholesteralDetailModal" tabindex="-1" aria-labelledby="cholesterolDetailModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header p-4 d-flex flex-column gap-3">
+                        <div class="w-100 d-flex align-items-start">
+                            <div class="d-flex flex-column gap-1 w-100">
+                                <h5 class="modal-title" id="cholesteralDetailModalLabel">
+                                    Cholesterol Level Details
+                                </h5>
+                                <p class="log-datetime opacity-75">
+                                    Logged on 13/08/2024 13:10
+                                </p>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="horizontal-divider bg-body-secondary"></div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <div>
+                                <h4 class="fs-6">Your cholesterol level is:</h4>
+                                <div class="d-flex align-items-center gap-1">
+                                    <span class="material-symbols-rounded color-warning fs-5">warning</span>
+                                    <p id="general-info-gender" class="fs-3 fw-bold">At Risk</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="fs-6">Your cholesterol category is:</h4>
+                                <div class="d-flex align-items-center gap-1">
+                                    <span class="material-symbols-rounded color-danger fs-5">error</span>
+                                    <p id="general-info-gender" class="fs-3 fw-bold">High Cholesterol</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col p-0 d-flex flex-column gap-3">
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">Total Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">Triglycerides</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">HDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">LDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+                                </div>
+
+                                <div class="col p-0 d-flex flex-column gap-3">
+                                    <h2 class="fw-bold">Key Suggestions</h2>
+                                    <div class="accordion" id="suggestion-accordion">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button fs-5 fw-semibold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#suggestion-one"
+                                                    aria-expanded="true" aria-controls="suggestion-one">Optimize your
+                                                    diet</button>
+                                            </h2>
+                                            <div id="suggestion-one" class="accordion-collapse collapse"
+                                                data-bs-parent="#suggestion-accordion">
+                                                <div class="accordion-body">
+                                                    <ul class="list-group suggestion-list px-3">
+                                                        <li class="list-group-item p-0 border-0">Limited saturated fats
+                                                            (e.g., fatty cuts of meat, full-fat dairy) and eliminate
+                                                            trans fats (partially hydrogenates oils)</li>
+                                                        <li class="list-group-item p-0 border-0">Add soluble fiber (oat,
+                                                            beans, barley, fruits) to help lower LDL</li>
+                                                        <li class="list-group-item p-0 border-0">Include plant
+                                                            sterol/stanols (fortified spreads or supplements) to block
+                                                            cholesterol absorption
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button fs-5 fw-semibold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#suggestion-two"
+                                                    aria-expanded="true" aria-controls="suggestion-two">Get regular aerobic exercise</button>
+                                            </h2>
+                                            <div id="suggestion-two" class="accordion-collapse collapse"
+                                                data-bs-parent="#suggestion-accordion">
+                                                <div class="accordion-body">
+                                                    <ul class="list-group suggestion-list px-3">
+                                                        <li class="list-group-item p-0 border-0">Aim for at least 150 minutes/week of moderate activity (e.g., brisk walking, cycling)</li>
+                                                        <li class="list-group-item p-0 border-0">Add strength training 2×/week to help improve HDL and insulin sensitivity</li>
+                                                        <li class="list-group-item p-0 border-0">Include plant
+                                                            sterol/stanols (fortified spreads or supplements) to block
+                                                            cholesterol absorption
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button fs-5 fw-semibold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#suggestion-three"
+                                                    aria-expanded="true" aria-controls="suggestion-three">Achieve and maintain a healthy weight</button>
+                                            </h2>
+                                            <div id="suggestion-three" class="accordion-collapse collapse"
+                                                data-bs-parent="#suggestion-accordion">
+                                                <div class="accordion-body">
+                                                    <ul class="list-group suggestion-list px-3">
+                                                        <li class="list-group-item p-0 border-0">Target a BMI 18.5 – 24.9 and waist <40″ (men), <35″ (women)</li>
+                                                        <li class="list-group-item p-0 border-0">Add strength training 2×/week to help improve HDL and insulin sensitivity</li>
+                                                        <li class="list-group-item p-0 border-0">Even 5–10% weight loss can meaningfully improve your lipid profile
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button fs-5 fw-semibold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#suggestion-four"
+                                                    aria-expanded="true" aria-controls="suggestion-four">Quit smoking and limit alcohol</button>
+                                            </h2>
+                                            <div id="suggestion-four" class="accordion-collapse collapse"
+                                                data-bs-parent="#suggestion-accordion">
+                                                <div class="accordion-body">
+                                                    <ul class="list-group suggestion-list px-3">
+                                                        <li class="list-group-item p-0 border-0">Tobacco lowers HDL and damages vessels</li>
+                                                        <li class="list-group-item p-0 border-0">Alcohol in excess raises triglycerides—keep to ≤1 drink/day (women) or ≤2 (men)</li>
+                                                        <li class="list-group-item p-0 border-0">Even 5–10% weight loss can meaningfully improve your lipid profile
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button fs-5 fw-semibold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#suggestion-one"
+                                                    aria-expanded="true" aria-controls="suggestion-one">Quit smoking and limit alcohol</button>
+                                            </h2>
+                                            <div id="suggestion-one" class="accordion-collapse collapse"
+                                                data-bs-parent="#suggestion-accordion">
+                                                <div class="accordion-body">
+                                                    <ul class="list-group suggestion-list px-3">
+                                                        <li class="list-group-item p-0 border-0">Schedule follow‑up lipid panels</li>
+                                                        <li class="list-group-item p-0 border-0">Retest in 6–12 months to ensure levels are moving in the right direction</li>
+                                                        <li class="list-group-item p-0 border-0">If you have additional risk factors (e.g., family history, hypertension, diabetes), your provider may recommend more frequent checks.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">Triglycerides</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">HDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+
+                                    <div class="horizontal-divider bg-body-secondary"></div>
+                                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                                        <div>
+                                            <h4 class="fs-6 caption">LDL Cholesterol</h4>
+                                            <span class="d-flex gap-1 align-items-baseline">
+                                                <p class="fs-2 fw-bold result-number-size">120</p>
+                                                <span class="fs-6 fw-bold text-uppercase opacity-50">MMHG</span>
+                                            </span>
+                                        </div>
+                                        <p
+                                            class="caption bg-lightred border-lightred fw-bold h-fit-content text-danger px-3 py-2 rounded-3 w-fit-content general-health-level">
+                                            High Cholesterol</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="padding-common mt-5">
+        <div class="horizontal-divider bg-body-secondary"></div>
+    </div>
+
+    <footer class="py-5 d-flex flex-column gap-5 padding-common">
+        <img src="src/public/images/logo/big logo.png" id="footer-logo" alt="">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column justify-content-between">
+                <h6 class="fs-5">Empowering you with personalized tools to take control of your health journey</h6>
+                <div class="horizontal-divider bg-body-secondary"></div>
+                <div class="city-copyright">
+                    <p>Jakarta, Indonesia</p>
+                    <p>GlucoTrackr 2025. All right reserved</p>
+                </div>
+            </div>
+
+            <div class="footer-links d-flex gap-5">
+                <div id="learn-more-links">
+                    <h5 class="footer-link-title text-secondary text-uppercase">Learn More</h5>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Terms of Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="follow-us-links">
+                    <h5 class="footer-link-title text-secondary text-uppercase">Follow Us</h5>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Instagram</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Youtube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Twitter / X</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+        integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
