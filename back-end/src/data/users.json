@@ -1,0 +1,16 @@
+[
+  {
+    "id": "r5ToNwF7Y_xV-Mnq_flqx",
+    "name": "test",
+    "email": "test@example.co.id",
+    "password": "Abcd1234",
+    "createdAt": "2025-05-24T15:22:38.594Z"
+  },
+  {
+    "id": "wGIfYFsTdYbJFPRyeV5UO",
+    "name": "text",
+    "email": "text@example.com",
+    "password": "Abcd1234",
+    "createdAt": "2025-05-24T15:45:01.012Z"
+  }
+]

@@ -15,6 +15,49 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
     </script>
 
+<style>
+    /* Style untuk loading state dan notifikasi */
+    .loading {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+    
+    .btn.loading::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        border: 2px solid transparent;
+        border-top: 2px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<script src="./src/scripts/auth.js"></script>
+
+<script>
+    // Function untuk menambahkan loading state ke button
+    function setButtonLoading(button, isLoading) {
+        if (isLoading) {
+            button.classList.add('loading');
+            button.disabled = true;
+            button.dataset.originalText = button.textContent;
+            button.textContent = 'Loading...';
+        } else {
+            button.classList.remove('loading');
+            button.disabled = false;
+            button.textContent = button.dataset.originalText;
+        }
+    }
+</script>
+
 </head>
 
 <body class="bg-lightgrey03">
@@ -588,5 +631,7 @@
         integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous">
     </script>
 </body>
+
+
 
 </html>
