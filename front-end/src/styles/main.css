@@ -1,6 +1,6 @@
 :root {
   --color-primary: #1565c0;
-  --color-success: #29bf12;
+  --color-success: #28a913;
   --color-danger: #d82d2d;
   --color-warning: #ffb700;
   --color-lightgrey01: #cdcdcd;
@@ -11,15 +11,15 @@
   --color-lightgreen: #eeffd8;
   --color-lightyellow: #fff6cc;
   --color-lightred: #fae3e3;
-  --color-darkyellow: #d6a40f;
+  --color-darkyellow: #df9d00;
 
   --font-size-desktop-smallcaption: 12px;
-  --font-size-desktop-caption: clamp(0.8rem, 2vw, 1rem); /*done*/
-  --font-size-desktop-body: clamp(0.9rem, 1.6vw, 1.3rem); /*done*/
-  --font-size-desktop-largebody: clamp(1rem, 1.6vw, 1.5rem); /*done*/
-  --font-size-desktop-subtitle: clamp(1.6rem, 2vw, 2.8rem); /*done*/
-  --font-size-desktop-title: clamp(2rem, 1.6vw, 3.6rem); /*done*/
-  --font-size-desktop-subdisplay: clamp(2.5rem, 1.6vw, 4.2rem); /*done*/
+  --font-size-desktop-caption: clamp(0.8rem, 1.6vw, 1rem); /*done*/
+  --font-size-desktop-body: clamp(0.9rem, 1.6vw, 1.1rem); /*done*/
+  --font-size-desktop-largebody: clamp(1rem, 1.6vw, 1.3rem); /*done*/
+  --font-size-desktop-subtitle: clamp(1.4rem, 2vw, 1.8rem); /*done*/
+  --font-size-desktop-title: clamp(2rem, 1.6vw, 2.6rem); /*done*/
+  --font-size-desktop-subdisplay: clamp(2.5rem, 1.6vw, 3.5rem); /*done*/
   --font-size-desktop-display: clamp(2.8rem, 4.8vw, 5.6rem); /*done*/
 }
 
@@ -90,7 +90,11 @@ h5,
 h6,
 .fs-6,
 p,
-.btn-lg {
+.btn-lg,
+input,
+form label.form-label,
+form label,
+body li {
   font-size: var(--font-size-desktop-body) !important;
   /* line-height: clamp(1.4rem, 3vw, 2rem) !important; */
 }
@@ -152,19 +156,19 @@ a,
   background-color: var(--color-primary) !important;
 }
 
-.text-primary {
+body .text-primary {
   color: var(--color-primary) !important;
 }
 
-.text-success {
+body .text-success {
   color: var(--color-success) !important;
 }
 
-.text-warning {
+body .text-warning {
   color: var(--color-darkyellow) !important;
 }
 
-.text-danger {
+body.text-danger {
   color: var(--color-danger) !important;
 }
 
@@ -278,7 +282,7 @@ a,
 }
 
 .modal-dialog {
-  max-width: 80% !important;
+  /*max-width: 80% !important;*/
 }
 
 .mw-0 {
@@ -308,9 +312,10 @@ header .jumbotron .jumbotron-text-action {
 }
 
 #main-content #the-steps #the-steps-content .card .step-number {
-  width: clamp(3rem, 6vw, 5rem);
-  height: clamp(3rem, 6vw, 5rem);
+  width: clamp(3rem, 7vw, 5rem);
+  height: clamp(3rem, 7vw, 5rem);
   transform: translate(-50%, -30%);
+  border-color: var(--color-lightgrey03) !important;
 }
 
 #main-content #the-features #the-features-content {
@@ -431,12 +436,84 @@ footer div #follow-us-links {
   color: var(--color-success) !important;
 }
 
-.suggestion-list > .list-group-item {
+.suggestion-list > .list-group-item,
+.recommendation-list > .list-group-item {
   display: list-item !important;
+}
+
+.question-number {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.min-width-input {
+  min-width: 120px !important;
+}
+
+#input-log-accordion .accordion-item:has(.accordion-button:not(.collapsed)),
+#input-exercise-accordion
+  .accordion-item:has(.accordion-button:not(.collapsed)) {
+  border: 1px solid var(--color-primary) !important;
+}
+
+.accordion#input-log-accordion .accordion-button:not(.collapsed) h2,
+.accordion#input-exercise-accordion .accordion-button:not(.collapsed) h2 {
+  color: var(--color-primary) !important;
+}
+
+.form-check-input {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.accordion#input-log-accordion .accordion-item.accordion-filled,
+.accordion#input-exercise-accordion .accordion-item.accordion-filled {
+  border-color: var(--color-success) !important;
+}
+
+.accordion#input-log-accordion
+  .accordion-item.accordion-filled
+  .accordion-button,
+.accordion#input-exercise-accordion
+  .accordion-item.accordion-filled
+  .accordion-button {
+  background-color: var(--color-lightgreen) !important;
+}
+
+.accordion#input-log-accordion
+  .accordion-item.accordion-filled
+  .accordion-button
+  h2,
+.accordion#input-exercise-accordion
+  .accordion-item.accordion-filled
+  .accordion-button
+  h2 {
+  color: var(--color-success) !important;
+}
+
+.z-999 {
+  z-index: 999 !important;
+}
+
+#recommendation-modal-container {
+  border-left: 1px solid var(--color-lightgrey01);
 }
 
 @media only screen and (min-width: 1400px) {
   #second-group-result section > div {
     gap: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #cholesterolDetailModal,
+  .modal-dialog .modal-body .container .row .col-md-12.pe-5 {
+    padding-right: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  #recommendation-modal-container {
+    border-left: 0;
+    padding-top: 0 !important;
   }
 }

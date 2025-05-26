@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SugarTrackr - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,arrow_back,arrow_forward,check,check_circle,close,error,info,notifications,star,star_half,stars_2,warning"
+    />
+
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <link rel="stylesheet" href="src/styles/dashboard.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="bg-white" id="dashboard-page">
+    <header class="bg-image-settings position-relative">
+      <div
+        class="linear-gradient-bg blue-gradient-bg position-absolute top-0 start-0 w-100 h-100 z-0"
+      ></div>
+      <nav class="navbar navbar-expand-lg position-relative z-3 py-4 bg-white">
+        <div class="container-fluid padding-common">
+          <a class="navbar-brand" href="#">
+            <img
+              src="./src/public/images/logo/small logo.png"
+              width="180"
+              alt=""
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+            <div class="d-flex gap-2">
+              <button
+                class="btn text-primary fw-semibold text-decoration-underline"
+                type="button"
+              >
+                Log In
+              </button>
+              <button class="btn btn-primary fw-semibold" type="button">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="jumbotron padding-common py-5 w-100 position-relative z-1">
+        <div
+          class="jumbotron-text-action w-100 h-100 d-flex flex-column align-items-center gap-2 text-center"
+        >
+          <h1 class="fw-bold text-white">Log New Entry</h1>
+          <p class="fs-5 fw-semibold text-white">
+            We use this data to help us tailor your health recommendations. Your
+            information remains private and secure
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="main-content"
+      class="d-flex flex-column gap-5 pt-5 padding-common"
+    >
+      <form action="">
+        <div class="d-flex align-items-center gap-3 w-100">
+          <div
+            class="progress w-100"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="height: 2rem"
+          >
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated caption fw-semibold"
+              style="width: 25%"
+            >
+              25%
+            </div>
+          </div>
+          <button
+            class="btn btn-primary fw-semibold btn-lg fs-6 text-nowrap"
+            type="submit"
+          >
+            Submit Form
+          </button>
+        </div>
+        <div class="mt-5">
+          <section>
+            <div
+              class="accordion d-flex flex-column gap-5 border-0 rounded-0"
+              id="input-log-accordion"
+            >
+              <div
+                class="accordion-item border border-dark-subtle rounded-2 accordion-filled position-relative"
+                id="ghq-form"
+              >
+                <div
+                  class="check-icon-accordion position-absolute z-999 top-0 start-100 translate-middle"
+                >
+                  <span
+                    class="material-symbols-rounded fs-1 bg-white rounded-circle text-success"
+                  >
+                    check_circle
+                  </span>
+                </div>
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputGHQ"
+                    aria-expanded="true"
+                    aria-controls="inputGHQ"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">
+                        General Health Questionnaire (GHQ-12)
+                      </h2>
+                      <p class="mt-2">
+                        Help us assess your current mental well-being by
+                        answering the following questions. Your responses are
+                        confidential and will be used to better understand your
+                        health.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputGHQ"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been able to concentrate on what
+                        you're doing?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion01"
+                            id="ghq-question01-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question01-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion01"
+                            id="ghq-question01-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question01-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion01"
+                            id="ghq-question01-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question01-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion01"
+                            id="ghq-question01-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question01-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently lost much sleep over worry?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion02"
+                            id="ghq-question02-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question02-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion02"
+                            id="ghq-question02-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question02-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion02"
+                            id="ghq-question02-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question02-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion02"
+                            id="ghq-question02-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question02-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently felt that you are playing a useful
+                        part in things?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion03"
+                            id="ghq-question03-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question03-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion03"
+                            id="ghq-question03-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question03-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion03"
+                            id="ghq-question03-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question03-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion03"
+                            id="ghq-question03-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question03-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently felt capable of making decisions
+                        about things?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion04"
+                            id="ghq-question04-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question04-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion04"
+                            id="ghq-question04-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question04-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion04"
+                            id="ghq-question04-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question04-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion04"
+                            id="ghq-question04-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question04-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently felt constantly under strain?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion05"
+                            id="ghq-question05-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion05"
+                            id="ghq-question05-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion05"
+                            id="ghq-question05-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion05"
+                            id="ghq-question05-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently felt you couldn't overcome your
+                        difficulties?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion06"
+                            id="ghq-question06-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion06"
+                            id="ghq-question06-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion06"
+                            id="ghq-question06-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion06"
+                            id="ghq-question06-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been able to enjoy your normal
+                        day-to-day activities?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion07"
+                            id="ghq-question07-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion07"
+                            id="ghq-question07-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion07"
+                            id="ghq-question07-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion07"
+                            id="ghq-question07-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been able to face up to your
+                        problems?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion08"
+                            id="ghq-question08-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion08"
+                            id="ghq-question08-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion08"
+                            id="ghq-question08-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion08"
+                            id="ghq-question08-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been feeling unhappy or
+                        depressed?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion09"
+                            id="ghq-question09-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion09"
+                            id="ghq-question09-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion09"
+                            id="ghq-question09-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion09"
+                            id="ghq-question09-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been losing confidence in
+                        yourself?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion10"
+                            id="ghq-question10-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion10"
+                            id="ghq-question10-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion10"
+                            id="ghq-question10-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion10"
+                            id="ghq-question10-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been thinking of yourself as a
+                        worthless person?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion11"
+                            id="ghq-question11-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion11"
+                            id="ghq-question11-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion11"
+                            id="ghq-question11-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion11"
+                            id="ghq-question11-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you recently been feeling reasonably happy, all
+                        things considered?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion12"
+                            id="ghq-question12-answer01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer01"
+                          >
+                            Not at all
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion12"
+                            id="ghq-question12-answer02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer02"
+                          >
+                            Less than usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion12"
+                            id="ghq-question12-answer03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer03"
+                          >
+                            Same as usual
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="ghqQuestion12"
+                            id="ghq-question12-answer04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="ghq-question05-answer04"
+                          >
+                            More than usual
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="bmi-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputBMI"
+                    aria-expanded="true"
+                    aria-controls="inputBMI"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">Body Mass Index (BMI)</h2>
+                      <p class="mt-2">
+                        Please enter your age, gender, height, and weight to
+                        help us determine your BMI.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputBMI"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label
+                        for="bmi-age-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your age</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          name="age"
+                          id="bmi-age-input"
+                          value="25"
+                        />
+                        <span class="text-nowrap my-auto">years old</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Please select your gender</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="bmiGenderInput"
+                            id="bmi-gender-male"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="bmi-gender-male"
+                          >
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="bmiGenderInput"
+                            id="bmi-gender-female"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="bmi-gender-female"
+                          >
+                            Female
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="bmi-height-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your height</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          name="height"
+                          id="bmi-height-input"
+                          placeholder="0"
+                        />
+                        <span class="text-nowrap my-auto">cm</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="bmi-weight-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your weight</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          name="weight"
+                          id="bmi-weight-input"
+                          placeholder="0"
+                        />
+                        <span class="text-nowrap my-auto">kg</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="bmi-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputBloodPressure"
+                    aria-expanded="true"
+                    aria-controls="inputBloodPressure"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">
+                        Blood Pressure Measurement
+                      </h2>
+                      <p class="mt-2">
+                        Please enter your blood pressure measurements below. If
+                        you are unsure how to measure your blood pressure using
+                        blood pressure monitor, follow
+                        <a href="">this step-by-step</a> guide.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputBloodPressure"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label
+                        for="systolic-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your systolic pressure (top number,
+                        <a href="">view this image for guidance</a>):</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="systolic"
+                          id="systolic-input"
+                        />
+                        <span class="text-nowrap my-auto">mmHg</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="diastolic-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your diastolic pressure (lower number,
+                        <a href="">view this image for guidance</a>):</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="diastolic"
+                          id="diastolic-input"
+                        />
+                        <span class="text-nowrap my-auto">mg/dL</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="bmi-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputCholesterol"
+                    aria-expanded="true"
+                    aria-controls="inputCholesterol"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">Cholesterol Measurement</h2>
+                      <p class="mt-2">
+                        Please enter your recent cholesterol test results below.
+                        To obtain these numbers, visit a healthcare provider or
+                        clinic for a lipid panel test. Your provider will
+                        measure total cholesterol, LDL, HDL, and triglycerides.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputCholesterol"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label
+                        for="total-cholesterol-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your total cholesterol level</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="total-cholesterol"
+                          id="total-cholesterol-input"
+                        />
+                        <span class="text-nowrap my-auto">mg/dL</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="ldl-cholesterol-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your LDL cholesterol level</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="ldl-cholesterol"
+                          id="ldl-cholesterol-input"
+                        />
+                        <span class="text-nowrap my-auto">mg/dL</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="hdl-cholesterol-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your HDL cholesterol level</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="hdl-cholesterol"
+                          id="hdl-cholesterol-input"
+                        />
+                        <span class="text-nowrap my-auto">mg/dL</span>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="triglycerides-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Please enter your triglycerides cholesterol
+                        level</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="text"
+                          placeholder="0"
+                          name="triglycerides"
+                          id="triglycerides-input"
+                        />
+                        <span class="text-nowrap my-auto">mg/dL</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="physical-health-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#unwellDays"
+                    aria-expanded="true"
+                    aria-controls="unwellDays"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">Physical Health Days</h2>
+                      <p class="mt-2">
+                        Please tell us how many days in the past month your
+                        physical health was affected by illness or injury. Your
+                        input helps us better understand your health journey.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="unwellDays"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label
+                        for="unwell-days-input"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >Thinking about your physical health, which includes
+                        physical illness and injury, for how many days during
+                        the past 30 days would you say your health was not
+                        good?</label
+                      >
+                      <div class="d-flex gap-2 mt-2">
+                        <input
+                          class="form-control w-25 min-width-input"
+                          type="number"
+                          placeholder="0"
+                          name="unwellDays"
+                          id="unwell-days-input"
+                          min="0"
+                          max="30"
+                        />
+                        <span class="text-nowrap my-auto">days</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="income-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputIncome"
+                    aria-expanded="true"
+                    aria-controls="inputIncome"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">
+                        Walking & Stair-Climbing Difficulty
+                      </h2>
+                      <p class="mt-2">
+                        Let us know if you have serious mobility issues.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputIncome"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >What is your yearly income range?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange01"
+                          >
+                            Less than Rp 10,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange02"
+                          >
+                            Rp 10,000,000 to less than Rp 20,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange03"
+                          >
+                            Rp 20,000,000 to less than Rp 30,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange04"
+                          >
+                            Rp 30,000,000 to less than Rp 50,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange05"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange05"
+                          >
+                            Rp 50,000,000 to less than Rp 75,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange06"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange06"
+                          >
+                            Rp 75,000,000 to less than Rp 100,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange07"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange07"
+                          >
+                            Rp 100,000,000 to less than Rp 150,000,000
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="incomeRange"
+                            id="incomeRange08"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="incomeRange08"
+                          >
+                            Rp 150,000,000 or more
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="heart-disease-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputHeartDisease"
+                    aria-expanded="true"
+                    aria-controls="inputHeartDisease"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">
+                        Heart Disease or Heart Attack History
+                      </h2>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputHeartDisease"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you ever been diagnosed with coronary heart
+                        disease (CHD) or experienced a heart attack (myocardial
+                        infection) by a healthcare provider?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="heartDiseaseInput"
+                            id="haveHeartDisease"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="haveHeartDisease"
+                          >
+                            Yes, I do
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="heartDiseaseInput"
+                            id="noHeartDisease"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="noHeartDisease"
+                          >
+                            No, I don't
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="difficulty-walking-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputDifficultyWalking"
+                    aria-expanded="true"
+                    aria-controls="inputDifficultyWalking"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">
+                        Walking & Stair-Climbing Difficulty
+                      </h2>
+                      <p class="mt-2">
+                        Let us know if you have serious mobility issues.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputDifficultyWalking"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Do you have serious difficulty walking or climbing
+                        stairs?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="difficultyWalkingInput"
+                            id="haveDifficultyWalking"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="haveDifficultyWalking"
+                          >
+                            Yes, I do
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="difficultyWalkingInput"
+                            id="noDifficultyWalking"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="noDifficultyWalking"
+                          >
+                            No, I don't
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="cholesterol-check-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputCholesterolCheck"
+                    aria-expanded="true"
+                    aria-controls="inputCholesterolCheck"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">Cholesterol Health Check</h2>
+                      <p class="mt-2">
+                        Please answer some questions below to help us understand
+                        your cholesterol status.
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="inputCholesterolCheck"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Have you had your blood cholesterol checked by a doctor
+                        or health professional in the past 5 years?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolCheck"
+                            id="cholesterolCheckQ01A01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ01A01"
+                          >
+                            Yes, I have
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolCheck"
+                            id="cholesterolCheckQ01A02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ01A02"
+                          >
+                            No, I haven't
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >Are you currently taking cholesterol-lowering
+                        medication (e.g., statins)?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolMedication"
+                            id="cholesterolCheckQ02A01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ02A01"
+                          >
+                            Yes, I am
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolMedication"
+                            id="cholesterolCheckQ02A02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ02A02"
+                          >
+                            No, I am not
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label
+                        for="cholesterolCheckQuestion03"
+                        class="form-label fs-6 fw-semibold my-auto"
+                        >When was your last cholesterol check?</label
+                      >
+                      <input
+                        class="form-control w-25 min-width-input mt-2"
+                        type="date"
+                        name="cholesterolCheckDate"
+                        id="cholesterolCheckQuestion03"
+                      />
+                    </div>
+                    <div class="horizontal-divider bg-body-secondary"></div>
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >What was the result of your last cholesterol
+                        test?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolTestResult"
+                            id="cholesterolCheckQ04A01"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ04A01"
+                          >
+                            Normal
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolTestResult"
+                            id="cholesterolCheckQ04A02"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ04A02"
+                          >
+                            Borderline
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolTestResult"
+                            id="cholesterolCheckQ04A03"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ04A03"
+                          >
+                            High/Low
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="cholesterolTestResult"
+                            id="cholesterolCheckQ04A04"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="cholesterolCheckQ04A04"
+                          >
+                            I don't remember
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="accordion-item border border-dark-subtle rounded-2"
+                id="physical-activity-form"
+              >
+                <div class="accordion-header">
+                  <button
+                    class="accordion-button gap-2 collapsed rounded-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#physicalActivity"
+                    aria-expanded="true"
+                    aria-controls="physicalActivity"
+                  >
+                    <div>
+                      <h2 class="fs-5 fw-semibold">Physical Activity Days</h2>
+                      <p class="mt-2">
+                        Please tell us about your exercise and activity over the
+                        past 30 days
+                      </p>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  id="physicalActivity"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#input-log-accordion"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <div>
+                      <label for="" class="form-label fs-6 fw-semibold my-auto"
+                        >During the past 30 days, did you do any physical
+                        activities or exercises such as running, walking for
+                        exercise, gardening, or playing a sport (excluding
+                        work-related activity)?</label
+                      >
+                      <div class="mt-2">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="physicalActivityCheck"
+                            id="havePhysicalActivity"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="havePhysicalActivity"
+                          >
+                            Yes, I did
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="physicalActivityCheck"
+                            id="noPhysicalActivity"
+                          />
+                          <label
+                            class="form-check-label ms-1"
+                            for="noPhysicalActivity"
+                          >
+                            No, I didn’t
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 class="fs-4 mt-2">
+                      Please provide us with more details
+                    </h3>
+                    <div
+                      class="accordion d-flex flex-column gap-4 border-0 rounded-0 mt-2"
+                      id="input-exercise-accordion"
+                    >
+                      <div
+                        class="accordion-item border border-dark-subtle rounded-2"
+                        id="exercise01-form"
+                      >
+                        <div class="accordion-header">
+                          <button
+                            class="accordion-button rounded-2 collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#exercise01"
+                            aria-expanded="true"
+                            aria-controls="exercise01"
+                          >
+                            <h2 class="fs-5 fw-semibold">Exercise 1</h2>
+                          </button>
+                        </div>
+                        <div
+                          id="exercise01"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#input-exercise-accordion"
+                        >
+                          <div class="accordion-body d-flex flex-column gap-3">
+                            <div>
+                              <label
+                                for="physicalActivityType"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >What type of physical activity did you
+                                do?</label
+                              >
+                              <input
+                                class="form-control mt-2"
+                                type="text"
+                                placeholder="Type of physical activity"
+                                name="physicalActivityType"
+                                id="physicalActivityType"
+                              />
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for="activeDaysPerWeek"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >On how many days per week did you usually do
+                                this activity?</label
+                              >
+                              <div class="d-flex gap-2 mt-2">
+                                <input
+                                  class="form-control w-25 min-width-input"
+                                  type="number"
+                                  placeholder="0"
+                                  name="activeDaysPerWeek"
+                                  id="activeDaysPerWeek"
+                                  min="0"
+                                  max="7"
+                                />
+                                <span class="text-nowrap my-auto"
+                                  >days per week</span
+                                >
+                              </div>
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for="totalMinutesPerSession"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >On average, how long was each session?</label
+                              >
+                              <div class="d-flex gap-2 mt-2">
+                                <input
+                                  class="form-control w-25 min-width-input"
+                                  type="number"
+                                  placeholder="0"
+                                  name="totalMinutesPerSession"
+                                  id="totalMinutesPerSession"
+                                  min="0"
+                                  max="60"
+                                />
+                                <span class="text-nowrap my-auto"
+                                  >minutes per session</span
+                                >
+                              </div>
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for=""
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >How would you describe the intensity of this
+                                activity?</label
+                              >
+                              <div class="mt-2">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="lightIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="lightIntensity"
+                                  >
+                                    Light (e.g., slow walking, stretching, light
+                                    housework)
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="moderateIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="moderateIntensity"
+                                  >
+                                    Moderate (e.g., brisk walking, gardening,
+                                    casual biking)
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="vigorousIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="vigorousIntensity"
+                                  >
+                                    Vigorous (e.g., running, aerobics, fast
+                                    cycling)
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="accordion-item border border-dark-subtle rounded-2 overflow-hidden"
+                        id="exercise02-form"
+                      >
+                        <div class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#exercise02"
+                            aria-expanded="true"
+                            aria-controls="exercise02"
+                          >
+                            <h2 class="fs-5 fw-semibold">Exercise 2</h2>
+                          </button>
+                        </div>
+                        <div
+                          id="exercise02"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#input-exercise-accordion"
+                        >
+                          <div class="accordion-body d-flex flex-column gap-3">
+                            <div>
+                              <label
+                                for="physicalActivityType"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >What type of physical activity did you
+                                do?</label
+                              >
+                              <input
+                                class="form-control mt-2"
+                                type="text"
+                                placeholder="Type of physical activity"
+                                name="physicalActivityType"
+                                id="physicalActivityType"
+                              />
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for="activeDaysPerWeek"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >On how many days per week did you usually do
+                                this activity?</label
+                              >
+                              <div class="d-flex gap-2 mt-2">
+                                <input
+                                  class="form-control w-25 min-width-input"
+                                  type="number"
+                                  placeholder="0"
+                                  name="activeDaysPerWeek"
+                                  id="activeDaysPerWeek"
+                                  min="0"
+                                  max="7"
+                                />
+                                <span class="text-nowrap my-auto"
+                                  >days per week</span
+                                >
+                              </div>
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for="totalMinutesPerSession"
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >On average, how long was each session?</label
+                              >
+                              <div class="d-flex gap-2 mt-2">
+                                <input
+                                  class="form-control w-25 min-width-input"
+                                  type="number"
+                                  placeholder="0"
+                                  name="totalMinutesPerSession"
+                                  id="totalMinutesPerSession"
+                                  min="0"
+                                  max="60"
+                                />
+                                <span class="text-nowrap my-auto"
+                                  >minutes per session</span
+                                >
+                              </div>
+                            </div>
+                            <div
+                              class="horizontal-divider bg-body-secondary"
+                            ></div>
+                            <div>
+                              <label
+                                for=""
+                                class="form-label fs-6 fw-semibold my-auto"
+                                >How would you describe the intensity of this
+                                activity?</label
+                              >
+                              <div class="mt-2">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="lightIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="lightIntensity"
+                                  >
+                                    Light (e.g., slow walking, stretching, light
+                                    housework)
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="moderateIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="moderateIntensity"
+                                  >
+                                    Moderate (e.g., brisk walking, gardening,
+                                    casual biking)
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="intensityOfActivity"
+                                    id="vigorousIntensity"
+                                  />
+                                  <label
+                                    class="form-check-label ms-1"
+                                    for="vigorousIntensity"
+                                  >
+                                    Vigorous (e.g., running, aerobics, fast
+                                    cycling)
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        class="btn btn-lg btn-secondary w-fit-content d-flex align-items-center gap-2"
+                      >
+                        <span class="material-symbols-rounded"> add </span>
+                        <span class="fw-semibold fs-6"
+                          >Add Other Exercises</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </form>
+
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#diabetesPredictionLoadingModal"
+      >
+        preview modal
+      </button>
+      <button data-bs-toggle="modal" data-bs-target="#diabetesRiskResultModal">
+        preview modal
+      </button>
+
+      <div
+        class="modal fade"
+        id="diabetesPredictionLoadingModal"
+        tabindex="-1"
+        aria-labelledby="diabetesPredictionLoadingModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-md modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header p-4 bg-lightblue02">
+              <h5
+                class="modal-title fs-5"
+                id="diabetesPredictionLoadingModalLabel"
+              >
+                Your Diabetes Prediction Result
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="modal-body p-4 d-flex flex-column gap-2 align-items-center"
+            >
+              <img
+                src="src/public/images/dashboard/hourglass-animation.gif"
+                alt=""
+                width="120"
+                height="120"
+              />
+              <p class="fs-2 fw-semibold">Hang tight...</p>
+              <p class="fs-6 text-center">
+                We’re crunching your health data to brew up your diabetes risk
+                forecast
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="diabetesRiskResultModal"
+        tabindex="-1"
+        aria-labelledby="diabetesRiskResultModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div
+              class="modal-header p-4 bg-lightblue02 d-flex justify-content-between flex-wrap gap-2"
+            >
+              <h5 class="modal-title fs-5" id="diabetesRiskResultModalLabel">
+                Your Diabetes Prediction Result
+              </h5>
+              <div class="d-flex button-group gap-3 mt-2">
+                <button
+                  class="btn btn-primary fw-semibold btn-lg fs-6 text-nowrap"
+                  type="button"
+                  id="saveResultAsPDF"
+                >
+                  Save as PDF
+                </button>
+                <a
+                  href="index.html"
+                  class="btn btn-secondary fw-semibold btn-lg fs-6 bg-transparent border-primary text-primary d-flex align-items-center justify-content-center rounded-3 text-no-wrap"
+                  type="button"
+                  aria-label="returnToDashboardLabel"
+                >
+                  Return To Dashboard
+                </a>
+              </div>
+            </div>
+            <div class="modal-body p-0">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-xl-5 p-4">
+                    <div class="d-flex flex-column gap-1 w-100">
+                      <h2 class="fs-5 fw-semibold">
+                        Here’s what we found based on your inputs
+                      </h2>
+                      <p class="log-datetime opacity-75 caption">
+                        Logged on 13/08/2024 13:10
+                      </p>
+                    </div>
+                    <div class="position-relative w-100 mt-5">
+                      <div
+                        class="emoji-bar-images d-flex justify-content-between position-absolute w-100"
+                      >
+                        <img
+                          class="position-absolute top-0 start-0 translate-middle-y p-3 bg-white rounded-circle"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          width="92"
+                          height="92"
+                          alt=""
+                          class="rounded-circle"
+                          hidden
+                        />
+                        <img
+                          class="position-absolute top-0 start-50 translate-middle p-3 bg-white rounded-circle"
+                          src="src/public/images/dashboard/flat-emoji.png"
+                          width="92"
+                          height="92"
+                          alt=""
+                          class="rounded-circle"
+                        />
+                        <img
+                          class="position-absolute top-0 end-0 translate-middle-y p-3 bg-white rounded-circle"
+                          src="src/public/images/dashboard/sad-emoji.png"
+                          width="92"
+                          height="92"
+                          alt=""
+                          class="rounded-circle"
+                          hidden
+                        />
+                      </div>
+                      <div class="diabetes-level-bar rounded-3 w-100"></div>
+                      <div class="d-flex justify-content-between mt-2">
+                        <p class="text-success fw-bold">Normal</p>
+                        <p class="text-warning fw-bold">Prediabetes</p>
+                        <p class="text-danger fw-bold">Diabetes</p>
+                      </div>
+                    </div>
+                    <div
+                      class="badge text-bg-light fw-normal text-wrap text-start d-flex gap-3 align-items-center rounded-3 p-3 mt-3 w-fit-content mx-auto border-secondary-subtle"
+                    >
+                      <span class="material-symbols-rounded"> info </span>
+                      <p class="caption">
+                        Prediabetes means your blood sugar is higher than normal
+                        but not yet in the diabetic range
+                      </p>
+                    </div>
+                    <div class="d-flex flex-column gap-3 mt-4">
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-blood-pressure-category"
+                          src="src/public/images/dashboard/flat-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <h6 class="h6">Blood Pressure Category:</h6>
+                        <p
+                          class="h6 fw-bold text-warning"
+                          id="output-blood-pressure-category"
+                        >
+                          Elevated
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-bmi"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <h6>Body Mass Index (BMI):</h6>
+                        <p class="h6 fw-bold text-success" id="output-bmi">
+                          24.5
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-blood-pressure-level"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <h6>Blood Pressure Level:</h6>
+                        <p
+                          class="h6 fw-bold text-success"
+                          id="output-blood-pressure-level"
+                        >
+                          No High BP
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-cholesterol-status"
+                          src="src/public/images/dashboard/sad-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <h6>Cholesterol Status:</h6>
+                        <p
+                          class="h6 fw-bold text-danger"
+                          id="output-cholesterol-status"
+                        >
+                          High Cholesterol
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-cholesterol-level"
+                          src="src/public/images/dashboard/flat-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <h6>Cholesterol Level:</h6>
+                        <p
+                          class="h6 fw-bold text-warning"
+                          id="output-cholesterol-level"
+                        >
+                          At Risk
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-cholesterol-check"
+                          src="src/public/images/dashboard/sad-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <p class="h6" id="output-cholesterol-check">
+                          Have cholesterol checked
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-heart-disease"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <p class="h6" id="output-heart-disease">
+                          Don't experience heart disease or attack
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-difficulty-walking"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <p class="h6" id="output-difficulty-walking">
+                          Don’t have mobility difficulty (difficult walking)
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2 align-items-center">
+                        <img
+                          id="emoji-general-health"
+                          src="src/public/images/dashboard/smile-emoji.png"
+                          alt=""
+                          width="24"
+                          height="24"
+                        />
+                        <div class="d-flex flex-column gap-1">
+                          <div class="d-flex gap-2 align-items-center">
+                            <h6>General Health:</h6>
+                            <p
+                              class="h6 fw-bold text-success"
+                              id="output-general-health"
+                            >
+                              Good
+                            </p>
+                          </div>
+                          <div class="d-flex gap-1 align-items-center">
+                            <p class="caption">
+                              Mental Well-Being (GHQ-12 Score):
+                            </p>
+                            <p class="fw-bold" id="output-ghq-score">12</p>
+                            <p>of 36</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-column gap-2">
+                        <div class="d-flex gap-2 align-items-center">
+                          <img
+                            id="emoji-physical-activity"
+                            src="src/public/images/dashboard/smile-emoji.png"
+                            alt=""
+                            width="24"
+                            height="24"
+                          />
+                          <p class="h6" id="output-physical-activity">
+                            Have done enough physical activity
+                          </p>
+                        </div>
+                        <ol id="output-physical-activity-list">
+                          <li class="caption mb-1 ms-3">
+                            Walking, 50 minutes per session, 1x per day,
+                            moderate
+                          </li>
+                          <li class="caption mb-1 ms-3">
+                            Cycling, 35 minutes per session, 1x per day,
+                            vigorous
+                          </li>
+                          <li class="caption mb-1 ms-3">
+                            Yoga, 60 minutes per session, 1x per day, light
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-lg-12 col-xl-7 p-4 d-flex flex-column gap-4"
+                    id="recommendation-modal-container"
+                  >
+                    <h3 class="fw-bold fs-4">Recommendation & next steps</h3>
+                    <div class="accordion" id="recommendation-accordion">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button fs-5 fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#recommendationOne"
+                            aria-expanded="true"
+                            aria-controls="recommendationOne"
+                          >
+                            Lifestyle Modifications
+                          </button>
+                        </h2>
+                        <div
+                          id="recommendationOne"
+                          class="accordion-collapse collapse show"
+                          data-bs-parent="#recommendation-accordion"
+                        >
+                          <div class="accordion-body">
+                            <ul class="list-group recommendation-list px-3">
+                              <li class="list-group-item p-0 border-0">
+                                Increase moderate exercise to ≥150 min/week
+                              </li>
+                              <li class="list-group-item p-0 border-0">
+                                Adopt a balanced, low‑glycemic diet
+                              </li>
+                              <li class="list-group-item p-0 border-0">
+                                Aim for a healthy BMI (18.5–24.9 kg/m²)
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button fs-5 fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#recommendationTwo"
+                            aria-expanded="false"
+                            aria-controls="recommendationTwo"
+                          >
+                            Medical Follow‑Up
+                          </button>
+                        </h2>
+                        <div
+                          id="recommendationTwo"
+                          class="accordion-collapse collapse show"
+                          data-bs-parent="#recommendation-accordion"
+                        >
+                          <div class="accordion-body">
+                            <ul class="list-group recommendation-list px-3">
+                              <li class="list-group-item p-0 border-0">
+                                Schedule an A1C or fasting glucose test
+                              </li>
+                              <li class="list-group-item p-0 border-0">
+                                Discuss cholesterol management and blood
+                                pressure control
+                              </li>
+                              <li class="list-group-item p-0 border-0">
+                                Review mental health support if GHQ‑12 indicates
+                                distress
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button fs-5 fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#recommendationThree"
+                            aria-expanded="false"
+                            aria-controls="recommendationThree"
+                          >
+                            Track Progress
+                          </button>
+                        </h2>
+                        <div
+                          id="recommendationThree"
+                          class="accordion-collapse collapse show"
+                          data-bs-parent="#recommendation-accordion"
+                        >
+                          <div class="accordion-body">
+                            <ul class="list-group recommendation-list px-3">
+                              <li class="list-group-item p-0 border-0">
+                                Log your daily activity, diet, and health
+                                metrics in the dashboard
+                              </li>
+                              <li class="list-group-item p-0 border-0">
+                                Set reminders for check‑ups and lab tests
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="padding-common mt-5">
+      <div class="horizontal-divider bg-body-secondary"></div>
+    </div>
+
+    <footer class="py-5 d-flex flex-column gap-5 padding-common">
+      <img src="src/public/images/logo/big logo.png" id="footer-logo" alt="" />
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column justify-content-between">
+          <h6 class="fs-5">
+            Empowering you with personalized tools to take control of your
+            health journey
+          </h6>
+          <div class="horizontal-divider bg-body-secondary"></div>
+          <div class="city-copyright">
+            <p>Jakarta, Indonesia</p>
+            <p>GlucoTrackr 2025. All right reserved</p>
+          </div>
+        </div>
+
+        <div class="footer-links d-flex gap-5">
+          <div id="learn-more-links">
+            <h5 class="footer-link-title text-secondary text-uppercase">
+              Learn More
+            </h5>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Privacy Policy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Terms of Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="follow-us-links">
+            <h5 class="footer-link-title text-secondary text-uppercase">
+              Follow Us
+            </h5>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Instagram</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Youtube</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Twitter / X</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

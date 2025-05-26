@@ -53,26 +53,48 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="blog.html">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="about-us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="dashboard.html"
+                  >Dashboard</a
+                >
               </li>
             </ul>
-            <div class="d-flex gap-2">
-              <button
-                class="btn text-primary fw-semibold text-decoration-underline"
-                type="button"
-              >
-                Log In
-              </button>
-              <button class="btn btn-primary fw-semibold" type="button">
-                Sign Up
-              </button>
-            </div>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button
+                  class="btn btn-dark dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="src/public/images/dashboard/user-profile.png"
+                    alt=""
+                    width="24"
+                    height="24"
+                  />
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <!-- <span class="material-symbols-rounded">
+                              notifications
+                          </span> -->
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
