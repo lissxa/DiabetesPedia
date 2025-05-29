@@ -1,1 +1,4 @@
 node_modules
+*.txt
+jumbotronheader-landing.js
+main copy.css

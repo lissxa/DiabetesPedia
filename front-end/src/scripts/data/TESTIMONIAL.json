@@ -1,0 +1,19 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "review": "1. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
+      "name": "Esther Horward"
+    },
+    {
+      "id": 2,
+      "review": "2. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
+      "name": "Esther Horward"
+    },
+    {
+      "id": 3,
+      "review": "3. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
+      "name": "Esther Horward"
+    }
+  ]
+}
