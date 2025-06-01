@@ -20,8 +20,8 @@ class MyFooter extends HTMLElement {
                   </h6>
                   <div class="horizontal-divider bg-body-secondary"></div>
                   <div class="city-copyright">
-                  <p>Jakarta, Indonesia</p>
-                  <p>GlucoTrackr 2025. All right reserved</p>
+                  <p>Medan, Indonesia</p>
+                  <p>DiabetesPedia 2025. All right reserved</p>
                   </div>
               </div>
               </div>

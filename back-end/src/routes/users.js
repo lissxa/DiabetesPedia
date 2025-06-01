@@ -29,7 +29,7 @@ const usersRoutes = [
           return h
             .response({
               status: "fail",
-              message: "Name, email, dan password harus diisi",
+              message: "Name, email, and password must be filled in",
             })
             .code(400);
         }
@@ -43,7 +43,7 @@ const usersRoutes = [
           return h
             .response({
               status: "fail",
-              message: "Email sudah terdaftar",
+              message: "Email has been registered",
             })
             .code(400);
         }
@@ -74,7 +74,7 @@ const usersRoutes = [
         return h
           .response({
             status: "success",
-            message: "Registrasi berhasil",
+            message: "Registration successful",
             data: userResponse,
           })
           .code(201);
@@ -83,7 +83,7 @@ const usersRoutes = [
         return h
           .response({
             status: "error",
-            message: "Terjadi kesalahan server",
+            message: "A server error occurred",
           })
           .code(500);
       }
@@ -105,7 +105,7 @@ const usersRoutes = [
           return h
             .response({
               status: "fail",
-              message: "Email dan password harus diisi",
+              message: "Email and password must be filled in",
             })
             .code(400);
         }
@@ -122,7 +122,7 @@ const usersRoutes = [
           return h
             .response({
               status: "fail",
-              message: "Email atau password salah",
+              message: "Incorrect email or password",
             })
             .code(401);
         }
@@ -139,7 +139,7 @@ const usersRoutes = [
         return h
           .response({
             status: "success",
-            message: "Login berhasil",
+            message: "Login successful",
             data: userResponse,
           })
           .code(200);
@@ -148,7 +148,7 @@ const usersRoutes = [
         return h
           .response({
             status: "error",
-            message: "Terjadi kesalahan server",
+            message: "A server error occurred",
           })
           .code(500);
       }

@@ -1,24 +1,3 @@
-// import { defineConfig } from "vite";
-// import { resolve } from "path";
-
-// export default defineConfig({
-//   root: "./",
-//   build: {
-//     outDir: "../dist",
-//     rollupOptions: {
-//       input: {
-//         main: resolve(__dirname, "./index.html"),
-//         login: resolve(__dirname, "./index.html"),
-//         register: resolve(__dirname, "./index.html"),
-//         dashboard: resolve(__dirname, "./dashboard.html"),
-//       },
-//     },
-//   },
-//   server: {
-//     port: 5173,
-//     open: true,
-//   },
-// });
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
@@ -29,7 +8,11 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        main: resolve(__dirname, "/index.html"),
+        home: resolve(__dirname, "/index.html"),
+        dashboard: resolve(__dirname, "dashboard.html"),
+        about: resolve(__dirname, "about-us.html"),
+        lognewentry: resolve(__dirname, "log-new-entry.html"),
       },
     },
   },

@@ -13,7 +13,7 @@
   --color-lightred: #fae3e3;
   --color-darkyellow: #df9d00;
 
-  --font-family: "Roboto", sans-serif;
+  --font-family: "Quicksand", sans-serif;
 
   --font-size-desktop-smallcaption: 12px;
   --font-size-desktop-caption: calc(0.75rem + 0.2vw); /* ~13–15px */
@@ -66,11 +66,7 @@ body {
 }
 
 .material-symbols-rounded {
-  font-variation-settings:
-    "FILL" 1,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 * h1,
@@ -307,9 +303,9 @@ a,
   flex: 1 !important;
 }
 
-.modal-dialog {
-  /*max-width: 80% !important;*/
-}
+/* .modal-dialog {
+  max-width: 80% !important;
+} */
 
 .mw-0 {
   min-width: 0 !important;
@@ -686,5 +682,9 @@ footer #footer-logo {
   my-footer .city-copyright {
     position: absolute !important;
     bottom: 3rem;
+  }
+  .is-invalid {
+    border-color: red !important;
+    outline-color: red !important;
   }
 }

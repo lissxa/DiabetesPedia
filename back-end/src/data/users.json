@@ -12,5 +12,40 @@
     "email": "text@example.com",
     "password": "Abcd1234",
     "createdAt": "2025-05-24T15:45:01.012Z"
+  },
+  {
+    "id": "R6HY1kVqrtmV3bzncT2-E",
+    "name": "lisa",
+    "email": "lisa@codingcamp.id",
+    "password": "Kg8#pL@4zW1!",
+    "createdAt": "2025-05-30T12:22:31.901Z"
+  },
+  {
+    "id": "g5fP4PgvUX1T-FP9auKiC",
+    "name": "lisa",
+    "email": "lisa@gmail.com",
+    "password": "LisaLisa",
+    "createdAt": "2025-06-01T05:26:40.957Z"
+  },
+  {
+    "id": "Ipnk8b8r8D1c6qzhBSt0P",
+    "name": "Lisaa",
+    "email": "lisaaa@gmail.com",
+    "password": "Lisa1234",
+    "createdAt": "2025-06-01T05:30:51.027Z"
+  },
+  {
+    "id": "Hf9K9o-PzpJVU_V5c53FE",
+    "name": "Lisaa",
+    "email": "abcd@gmail",
+    "password": "Abcd1234",
+    "createdAt": "2025-06-01T05:34:49.016Z"
+  },
+  {
+    "id": "yt8mxMTDrPh4OKN_IvB7t",
+    "name": "Orewo",
+    "email": "oreo@gmail.com",
+    "password": "Oreo1234",
+    "createdAt": "2025-06-01T05:35:23.316Z"
   }
 ]

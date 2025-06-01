@@ -1,58 +1,49 @@
 const API_BASE_URL = "http://localhost:5000"; // [NANTI MAU DI UBAH JADI API DEPLOY]
+
 function auth() {
   function showNotification(message, type = "info") {
     console.log(`[${type.toUpperCase()}] ${message}`);
 
-    if (type === "success") {
-      alert(message);
-    } else if (type === "error") {
-      alert(message);
-    } else {
-      alert(message);
-    }
+    Swal.fire({
+      icon: type,
+      title: `<div style="font-size: 1.2rem">${message}</div>`,
+      timer: 2000,
+      showConfirmButton: false,
+    });
   }
 
   async function handleSignUp(event) {
     event.preventDefault();
 
+    const name = document.getElementById("inputNameSignUp").value;
     const email = document.getElementById("inputEmailSignUp").value;
     const password = document.getElementById("inputPasswordSignUp").value;
     const reEnterPassword = document.getElementById(
-      "reEnterPasswordSignUp",
+      "reEnterPasswordSignUp"
     ).value;
     const agreeToTerms = document.getElementById("checkTnC").checked;
 
     if (!email || !password || !reEnterPassword) {
-      showNotification("Semua field harus diisi!", "error");
+      showNotification("All fields must be filled!", "error");
       return;
     }
 
     if (password !== reEnterPassword) {
-      showNotification("Password tidak cocok!", "error");
+      showNotification("Passwords do not match!", "error");
       return;
     }
 
     if (password.length < 8 || password.length > 20) {
-      showNotification("Password harus 8-20 karakter!", "error");
+      showNotification("Password must be 8-20 characters!", "error");
       return;
     }
 
     if (!agreeToTerms) {
-      showNotification("Anda harus menyetujui Terms of Service!", "error");
+      showNotification("You must agree to the Terms of Service!", "error");
       return;
     }
 
     try {
-      console.log(
-        "Mengirim request register ke:",
-        `${API_BASE_URL}/users/register`,
-      );
-      console.log("Data yang dikirim:", {
-        name: email.split("@")[0],
-        email: email,
-        password: password,
-      });
-
       const response = await fetch(`${API_BASE_URL}/users/register`, {
         method: "POST",
         headers: {
@@ -60,20 +51,16 @@ function auth() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          name: email.split("@")[0],
-          email: email,
-          password: password,
+          name,
+          email,
+          password,
         }),
       });
 
-      console.log("Response status:", response.status);
-      console.log("Response headers:", response.headers);
-
       const result = await response.json();
-      console.log("Response data:", result);
 
       if (response.ok && result.status === "success") {
-        showNotification("Registrasi berhasil! Silakan login.", "success");
+        showNotification("Registration successful! Please login.", "success");
 
         document.getElementById("inputEmailSignUp").value = "";
         document.getElementById("inputPasswordSignUp").value = "";
@@ -81,19 +68,19 @@ function auth() {
         document.getElementById("checkTnC").checked = false;
 
         const signUpModal = bootstrap.Modal.getInstance(
-          document.getElementById("signUpModal"),
+          document.getElementById("signUpModal")
         );
         const signInModal = new bootstrap.Modal(
-          document.getElementById("signInModal"),
+          document.getElementById("signInModal")
         );
         signUpModal.hide();
         setTimeout(() => signInModal.show(), 300);
       } else {
-        showNotification(result.message || "Registrasi gagal!", "error");
+        showNotification(result.message || "Registration failed!", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      showNotification("Terjadi kesalahan koneksi!", "error");
+      showNotification("A connection error occurred!", "error");
     }
   }
 
@@ -104,35 +91,24 @@ function auth() {
     const password = document.getElementById("inputPasswordSignIn").value;
 
     if (!email || !password) {
-      showNotification("Email dan password harus diisi!", "error");
+      showNotification("Email and password must be filled in!", "error");
       return;
     }
 
     try {
-      console.log("Mengirim request login ke:", `${API_BASE_URL}/users/login`);
-      console.log("Data yang dikirim:", {
-        email: email,
-        password: password,
-      });
-
       const response = await fetch(`${API_BASE_URL}/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
-      console.log("Response status:", response.status);
       const result = await response.json();
-      console.log("Response data:", result);
 
       if (response.ok && result.status === "success") {
-        showNotification("Login berhasil!", "success");
+        showNotification("Login successful!", "success");
 
         localStorage.setItem("currentUser", JSON.stringify(result.data));
 
@@ -140,25 +116,26 @@ function auth() {
         document.getElementById("inputPasswordSignIn").value = "";
 
         const signInModal = bootstrap.Modal.getInstance(
-          document.getElementById("signInModal"),
+          document.getElementById("signInModal")
         );
         signInModal.hide();
 
+        window.dispatchEvent(new Event("authChange"));
+
         setTimeout(() => {
-          window.location.href = "./dashboard.html";
+          window.location.href = "/dashboard";
         }, 500);
       } else {
-        showNotification(result.message || "Login gagal!", "error");
+        showNotification(result.message || "Login failed!", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      showNotification("Terjadi kesalahan koneksi!", "error");
+      showNotification("A connection error occurred!", "error");
     }
   }
-
   function handleLogout() {
     localStorage.removeItem("currentUser");
-    showNotification("Logout berhasil!", "success");
+    showNotification("Logout successful!", "success");
   }
 
   function getCurrentUser() {
@@ -179,10 +156,9 @@ function auth() {
 
     const currentUser = getCurrentUser();
     if (currentUser) {
-      console.log("User sudah login:", currentUser);
+      console.log("User has logged in:", currentUser);
     }
   });
 }
 
-//export default { handleSignUp, handleSignIn, handleLogout, getCurrentUser };
 export default auth;

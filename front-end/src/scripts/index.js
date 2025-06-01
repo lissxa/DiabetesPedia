@@ -82,7 +82,11 @@ function signUpForm() {
     const password = document.getElementById("inputPasswordSignUp").value;
 
     if (!email || !password) {
-      alert("Email dan password harus diisi");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Email and password must be filled in!",
+      });
       return;
     }
 
@@ -93,7 +97,7 @@ function signUpForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: "User Default", //[MAU TAMBAH INPUTAN NAME, MASIH DEFAULT]
+          name: "User Default",
           email,
           password,
         }),
@@ -102,14 +106,26 @@ function signUpForm() {
       const result = await res.json();
 
       if (!res.ok) {
-        alert("Gagal registrasi: " + result.message);
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: result.message || "An error occurred during registration.",
+        });
         return;
       }
 
-      alert("Registrasi berhasil!");
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful!",
+        text: "Your account has been successfully created. Please login..",
+      });
     } catch (err) {
       console.error("Error:", err);
-      alert("Terjadi kesalahan");
+      Swal.fire({
+        icon: "error",
+        title: "There is an error",
+        text: "Failed to contact server.",
+      });
     }
   });
 }

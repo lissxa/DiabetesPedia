@@ -5,11 +5,35 @@ class SignInForm extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.setupPasswordToggle();
   }
 
   render() {
     const template = document.createElement("template");
     template.innerHTML = `      
+      <style>
+        .password-container {
+          position: relative;
+        }
+        .password-toggle {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: #6c757d;
+          cursor: pointer;
+          padding: 0 5px;
+        }
+        .password-toggle:hover {
+          color: #495057;
+        }
+        #inputPasswordSignIn {
+          padding-right: 40px; 
+        }
+      </style>
+      
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header p-4 bg-lightblue02">
@@ -58,26 +82,21 @@ class SignInForm extends HTMLElement {
                         required
                         >Password</label
                       >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="inputPasswordSignIn"
-                        placeholder="Enter your password"
-                        required
-                      />
-                      <div class="form-check mt-2">
+                      <div class="password-container">
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="showHidePassword"
+                          type="password"
+                          class="form-control"
+                          id="inputPasswordSignIn"
+                          placeholder="Enter your password"
+                          required
                         />
-                        <label
-                          class="form-check-label"
-                          for="showHidePassword"
+                        <button
+                          type="button"
+                          class="password-toggle"
+                          id="togglePassword"
                         >
-                          Show Password
-                        </label>
+                          <i class="bi bi-eye-slash"></i>
+                        </button>
                       </div>
                       <a
                         type="button"
@@ -139,6 +158,24 @@ class SignInForm extends HTMLElement {
 
     this.innerHTML = "";
     this.appendChild(template.content.cloneNode(true));
+  }
+
+  setupPasswordToggle() {
+    requestAnimationFrame(() => {
+      const passwordInput = this.querySelector("#inputPasswordSignIn");
+      const toggleButton = this.querySelector("#togglePassword");
+      const toggleIcon = toggleButton.querySelector("i");
+
+      if (passwordInput && toggleButton) {
+        toggleButton.addEventListener("click", () => {
+          const isPassword = passwordInput.type === "password";
+          passwordInput.type = isPassword ? "text" : "password";
+
+          toggleIcon.classList.toggle("bi-eye", isPassword);
+          toggleIcon.classList.toggle("bi-eye-slash", !isPassword);
+        });
+      }
+    });
   }
 }
 
