@@ -40,6 +40,16 @@ const init = async () => {
 
   server.route(usersRoutes);
 
+
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+      return h.response({ message: 'Server is running' }).code(200);
+    },
+  });
+
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
   console.log("CORS enabled for all origins");
