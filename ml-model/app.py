@@ -89,6 +89,11 @@ def generate_explanation(data: PatientData, prediction: str):
     return explanation
 
 # Endpoint
+@app.get("/")
+def root():
+    return {"message": "Service is running"}
+
+
 @app.post("/predict")
 def predict(data: PatientData):
     prediction, prob = preprocess_and_predict(data)
