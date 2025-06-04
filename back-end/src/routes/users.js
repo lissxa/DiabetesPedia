@@ -6,13 +6,26 @@ const usersRoutes = [
     method: "GET",
     path: "/test",
     handler: async (request, h) => {
-      return h
-        .response({
-          status: "success",
-          message: "API is working!",
-          timestamp: new Date().toISOString(),
-        })
-        .code(200);
+      try {
+        const users = await readUsers();
+        return h
+          .response({
+            status: "success",
+            message: "API is working!",
+            timestamp: new Date().toISOString(),
+            userCount: users.length,
+            environment: process.env.NODE_ENV || "development",
+          })
+          .code(200);
+      } catch (error) {
+        return h
+          .response({
+            status: "error",
+            message: "Server connection failed",
+            timestamp: new Date().toISOString(),
+          })
+          .code(500);
+      }
     },
   },
   {
@@ -20,16 +33,45 @@ const usersRoutes = [
     path: "/users/register",
     handler: async (request, h) => {
       try {
-        console.log("Register request received:", request.payload);
+        console.log("Register request received");
 
-        const { name, email, password } = request.payload;
+        const { name, email, password, reEnterPassword } =
+          request.payload || {};
 
-        if (!name || !email || !password) {
-          console.log("Missing required fields");
+        if (!name?.trim() || !email?.trim() || !password?.trim()) {
           return h
             .response({
               status: "fail",
-              message: "Name, email, and password must be filled in",
+              message:
+                "Name, email, and password are required and cannot be empty",
+            })
+            .code(400);
+        }
+
+        if (password !== reEnterPassword) {
+          return h
+            .response({
+              status: "fail",
+              message: "Password does not match",
+            })
+            .code(400);
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          return h
+            .response({
+              status: "fail",
+              message: "Please provide a valid email address",
+            })
+            .code(400);
+        }
+
+        if (password.length < 6) {
+          return h
+            .response({
+              status: "fail",
+              message: "Password must be at least 6 characters long",
             })
             .code(400);
         }
@@ -37,23 +79,26 @@ const usersRoutes = [
         const users = await readUsers();
         console.log("Current users count:", users.length);
 
-        const existing = users.find((u) => u.email === email);
-        if (existing) {
+        const existingUser = users.find(
+          (u) => u.email.toLowerCase() === email.toLowerCase()
+        );
+        if (existingUser) {
           console.log("Email already exists:", email);
           return h
             .response({
               status: "fail",
-              message: "Email has been registered",
+              message: "Email is already registered",
             })
-            .code(400);
+            .code(409);
         }
 
         const newUser = {
           id: nanoid(),
-          name,
-          email,
+          name: name.trim(),
+          email: email.toLowerCase().trim(),
           password,
           createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         };
 
         users.push(newUser);
@@ -83,7 +128,7 @@ const usersRoutes = [
         return h
           .response({
             status: "error",
-            message: "A server error occurred",
+            message: "Internal server error occurred during registration",
           })
           .code(500);
       }
@@ -94,18 +139,15 @@ const usersRoutes = [
     path: "/users/login",
     handler: async (request, h) => {
       try {
-        console.log("Login request received:", {
-          email: request.payload?.email,
-        });
+        console.log("Login request received");
 
-        const { email, password } = request.payload;
+        const { email, password } = request.payload || {};
 
-        if (!email || !password) {
-          console.log("Missing email or password");
+        if (!email?.trim() || !password?.trim()) {
           return h
             .response({
               status: "fail",
-              message: "Email and password must be filled in",
+              message: "Email and password are required",
             })
             .code(400);
         }
@@ -114,7 +156,9 @@ const usersRoutes = [
         console.log("Checking against", users.length, "users");
 
         const user = users.find(
-          (u) => u.email === email && u.password === password
+          (u) =>
+            u.email.toLowerCase() === email.toLowerCase().trim() &&
+            u.password === password
         );
 
         if (!user) {
@@ -122,7 +166,7 @@ const usersRoutes = [
           return h
             .response({
               status: "fail",
-              message: "Incorrect email or password",
+              message: "Invalid email or password",
             })
             .code(401);
         }
@@ -148,7 +192,40 @@ const usersRoutes = [
         return h
           .response({
             status: "error",
-            message: "A server error occurred",
+            message: "Internal server error occurred during login",
+          })
+          .code(500);
+      }
+    },
+  },
+  {
+    method: "GET",
+    path: "/users",
+    handler: async (request, h) => {
+      try {
+        const users = await readUsers();
+
+        const safeUsers = users.map((user) => ({
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          createdAt: user.createdAt,
+        }));
+
+        return h
+          .response({
+            status: "success",
+            message: "Users retrieved successfully",
+            data: safeUsers,
+            count: safeUsers.length,
+          })
+          .code(200);
+      } catch (err) {
+        console.error("Get users error:", err);
+        return h
+          .response({
+            status: "error",
+            message: "Failed to retrieve users",
           })
           .code(500);
       }

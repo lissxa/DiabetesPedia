@@ -47,5 +47,13 @@
     "email": "oreo@gmail.com",
     "password": "Oreo1234",
     "createdAt": "2025-06-01T05:35:23.316Z"
+  },
+  {
+    "id": "dV2-hj7Idk313_oa48xA-",
+    "name": "User Default",
+    "email": "ss@gmail.com",
+    "password": "ssssss",
+    "createdAt": "2025-06-04T14:14:56.214Z",
+    "updatedAt": "2025-06-04T14:14:56.214Z"
   }
 ]

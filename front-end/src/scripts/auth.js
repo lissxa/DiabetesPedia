@@ -144,11 +144,6 @@ function auth() {
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    const signUpForm = document.querySelector("#signUpModal .modal-form");
-    if (signUpForm) {
-      signUpForm.addEventListener("submit", handleSignUp);
-    }
-
     const signInForm = document.querySelector("#signInModal .modal-form");
     if (signInForm) {
       signInForm.addEventListener("submit", handleSignIn);

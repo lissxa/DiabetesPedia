@@ -40,23 +40,24 @@ const init = async () => {
 
   server.route(usersRoutes);
 
-
   server.route({
-    method: 'GET',
-    path: '/',
+    method: "GET",
+    path: "/",
     handler: (request, h) => {
-      return h.response({ 
-        status: 'success',
-        message: 'DiabetesPedia API is running!',
-        timestamp: new Date().toISOString()
-      }).code(200);
+      return h
+        .response({
+          status: "success",
+          message: "DiabetesPedia API is running!",
+          timestamp: new Date().toISOString(),
+          environment: process.env.NODE_ENV || "development",
+        })
+        .code(200);
     },
   });
 
-
   await server.start();
   console.log("Server running on %s", server.info.uri);
-  console.log("CORS enabled for all origins");
+  console.log("Environment:", process.env.NODE_ENV || "development");
 };
 
 process.on("unhandledRejection", (err) => {
