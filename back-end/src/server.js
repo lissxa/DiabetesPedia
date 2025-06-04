@@ -3,7 +3,7 @@ import usersRoutes from "./routes/users.js";
 
 const init = async () => {
   const server = Hapi.server({
-    port: 5000,
+    port: process.env.PORT || 5000,
     host: "0.0.0.0",
     routes: {
       cors: {
@@ -45,7 +45,11 @@ const init = async () => {
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-      return h.response({ message: 'Server is running' }).code(200);
+      return h.response({ 
+        status: 'success',
+        message: 'DiabetesPedia API is running!',
+        timestamp: new Date().toISOString()
+      }).code(200);
     },
   });
 
