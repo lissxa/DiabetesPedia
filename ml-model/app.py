@@ -6,6 +6,12 @@ import numpy as np
 import tensorflow as tf
 import joblib
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+import os
+from dotenv import load_dotenv
+import uvicorn
+
+# Load environment variables
+load_dotenv()
 
 # Load model klasifikasi diabetes
 model = tf.keras.models.load_model("model/best_model_cnn.h5")
@@ -71,11 +77,10 @@ def preprocess_and_predict(data: PatientData):
 # Explanation prompt
 def generate_explanation(data: PatientData, prediction: str):
     prompt = (
-    f"The patient is {data.age} years old, with an HbA1c level of {data.HbA1c_level}, blood glucose level of {data.blood_glucose_level}, "
-    f"a history of hypertension: {data.hypertension}, heart disease history: {data.heart_disease}, smoking history: {data.smoking_history}, "
-    f"and a BMI of {data.bmi}. The model's prediction is '{prediction}'. "
-    f"Please provide an explanation of why the patient is predicted to be {prediction.lower()}."
-
+        f"The patient is {data.age} years old, with an HbA1c level of {data.HbA1c_level}, blood glucose level of {data.blood_glucose_level}, "
+        f"a history of hypertension: {data.hypertension}, heart disease history: {data.heart_disease}, smoking history: {data.smoking_history}, "
+        f"and a BMI of {data.bmi}. The model's prediction is '{prediction}'. "
+        f"Please provide an explanation of why the patient is predicted to be {prediction.lower()}."
     )
     explanation = explanation_generator(
         prompt,
@@ -93,7 +98,6 @@ def generate_explanation(data: PatientData, prediction: str):
 def root():
     return {"message": "Service is running"}
 
-
 @app.post("/predict")
 def predict(data: PatientData):
     prediction, prob = preprocess_and_predict(data)
@@ -103,3 +107,9 @@ def predict(data: PatientData):
         "probability": round(float(prob), 4),
         "explanation": explanation
     }
+
+# Jalankan server dengan port dari .env
+if __name__ == "__main__":
+    host = os.getenv("HOST", "127.0.0.1")
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host=host, port=port, reload=True)
