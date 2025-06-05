@@ -21,10 +21,10 @@ pca = joblib.load("model/pca_transformer.pkl")
 x_scaled_cols = joblib.load("model/X_scaled.pkl")
 x_scaled_cols = x_scaled_cols.columns.tolist()
 
-# Load pretrained model explanation (FLAN-T5)
-tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-base")
-t5_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-base")
-explanation_generator = pipeline("text2text-generation", model=t5_model, tokenizer=tokenizer)
+# # Load pretrained model explanation (FLAN-T5)
+# tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-base")
+# t5_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-base")
+# explanation_generator = pipeline("text2text-generation", model=t5_model, tokenizer=tokenizer)
 
 # Setup FastAPI
 app = FastAPI()
@@ -75,23 +75,23 @@ def preprocess_and_predict(data: PatientData):
     return label, prob
 
 # Explanation prompt
-def generate_explanation(data: PatientData, prediction: str):
-    prompt = (
-        f"The patient is {data.age} years old, with an HbA1c level of {data.HbA1c_level}, blood glucose level of {data.blood_glucose_level}, "
-        f"a history of hypertension: {data.hypertension}, heart disease history: {data.heart_disease}, smoking history: {data.smoking_history}, "
-        f"and a BMI of {data.bmi}. The model's prediction is '{prediction}'. "
-        f"Please provide an explanation of why the patient is predicted to be {prediction.lower()}."
-    )
-    explanation = explanation_generator(
-        prompt,
-        max_length=200,
-        do_sample=True,
-        temperature=0.7,
-        top_k=50,
-        top_p=0.9,
-        truncation=True,
-    )[0]["generated_text"]
-    return explanation
+# def generate_explanation(data: PatientData, prediction: str):
+#     prompt = (
+#         f"The patient is {data.age} years old, with an HbA1c level of {data.HbA1c_level}, blood glucose level of {data.blood_glucose_level}, "
+#         f"a history of hypertension: {data.hypertension}, heart disease history: {data.heart_disease}, smoking history: {data.smoking_history}, "
+#         f"and a BMI of {data.bmi}. The model's prediction is '{prediction}'. "
+#         f"Please provide an explanation of why the patient is predicted to be {prediction.lower()}."
+#     )
+#     explanation = explanation_generator(
+#         prompt,
+#         max_length=200,
+#         do_sample=True,
+#         temperature=0.7,
+#         top_k=50,
+#         top_p=0.9,
+#         truncation=True,
+#     )[0]["generated_text"]
+#     return explanation
 
 # Endpoint
 @app.get("/")
@@ -101,11 +101,11 @@ def root():
 @app.post("/predict")
 def predict(data: PatientData):
     prediction, prob = preprocess_and_predict(data)
-    explanation = generate_explanation(data, prediction)
+    # explanation = generate_explanation(data, prediction)
     return {
         "prediction": prediction,
         "probability": round(float(prob), 4),
-        "explanation": explanation
+        # "explanation": explanation
     }
 
 # Jalankan server dengan port dari .env
