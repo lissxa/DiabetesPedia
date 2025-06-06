@@ -18,7 +18,7 @@ function renderTestimonials() {
 
   document.addEventListener("DOMContentLoaded", async () => {
     const testimonialList = document.querySelector("testimonial-list");
-    const result = await getTestimonialData(); // fetch data
+    const result = await getTestimonialData();
 
     if (testimonialList && result) {
       testimonialList.testimonials = result;
@@ -41,7 +41,7 @@ function renderBlogsHome() {
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const result = await getBlogData(); // fetch data
+    const result = await getBlogData();
 
     if (blogList && result) {
       blogList.blogs = result;
@@ -64,7 +64,7 @@ function renderBlogsDetail() {
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const result = await getBlogData(); // fetch data
+    const result = await getBlogData();
 
     if (blogListDetail && result) {
       blogListDetail.blogs = result;
@@ -72,68 +72,18 @@ function renderBlogsDetail() {
   });
 }
 
-function signUpForm() {
+function initializeSignUpForm() {
   const signUpForm = document.getElementById("signUpForm");
 
-  signUpForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("inputEmailSignUp").value;
-    const password = document.getElementById("inputPasswordSignUp").value;
-
-    if (!email || !password) {
-      Swal.fire({
-        icon: "warning",
-        title: "Oops...",
-        text: "Email and password must be filled in!",
-      });
-      return;
-    }
-
-    try {
-      const res = await fetch("http://localhost:5000/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: "User Default",
-          email,
-          password,
-        }),
-      });
-
-      const result = await res.json();
-
-      if (!res.ok) {
-        Swal.fire({
-          icon: "error",
-          title: "Registration Failed",
-          text: result.message || "An error occurred during registration.",
-        });
-        return;
-      }
-
-      Swal.fire({
-        icon: "success",
-        title: "Registration Successful!",
-        text: "Your account has been successfully created. Please login..",
-      });
-    } catch (err) {
-      console.error("Error:", err);
-      Swal.fire({
-        icon: "error",
-        title: "There is an error",
-        text: "Failed to contact server.",
-      });
-    }
-  });
+  if (signUpForm) {
+    signUpForm.style.display = "block";
+  }
 }
 
 export {
   renderTestimonials,
   renderBlogsHome,
   renderBlogsDetail,
-  signUpForm,
+  initializeSignUpForm as signUpForm,
   auth,
 };

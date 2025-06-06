@@ -12,6 +12,7 @@ export default defineConfig({
         home: resolve(__dirname, "index.html"),
         dashboard: resolve(__dirname, "dashboard.html"),
         about: resolve(__dirname, "about-us.html"),
+        blog: resolve(__dirname, "blog.html"),
         lognewentry: resolve(__dirname, "log-new-entry.html"),
       },
     },

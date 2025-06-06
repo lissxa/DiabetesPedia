@@ -110,12 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       categoryClass = "text-danger";
     }
 
-    const selectedGender = document.querySelector(
-      'input[name="bmiGenderInput"]:checked'
-    ).value;
-    const genderText = selectedGender === "male" ? "Male" : "Female";
-
-    bmiCategory.innerHTML = `<span class="${categoryClass}">${category}</span> (${genderText})`;
+    bmiCategory.innerHTML = `<span class="${categoryClass}">${category}</span>`;
   }
 
   bmiResult.value = "";
