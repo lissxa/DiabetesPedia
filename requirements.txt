@@ -2,9 +2,6 @@ fastapi
 uvicorn
 pandas
 joblib
-scikit-learn
-transformers
 torch
 tensorflow
-scikit-learn
 dotenv
