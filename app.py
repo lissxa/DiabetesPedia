@@ -2,10 +2,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
-import numpy as np
+# import numpy as np
 import tensorflow as tf
 import joblib
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+# from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import os
 from dotenv import load_dotenv
 import uvicorn
