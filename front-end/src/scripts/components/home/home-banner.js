@@ -23,22 +23,7 @@ class HomeBanner extends HTMLElement {
           Start your journey toward better health today by predicting your
           diabetes risk
         </p>
-        <div
-          class="d-flex button-group gap-3 mx-auto mt-2 flex-wrap justify-content-center"
-        >
-          <button
-            class="btn btn-tertiary btn-lg fw-semibold fs-6 text-black d-flex align-items-center justify-content-center rounded-3 text-nowrap"
-            type="button"
-          >
-            Get Your Prediction Now
-          </button>
-          <button
-            class="btn btn-secondary fw-semibold btn-lg fs-6 border-white bg-white bg-opacity-10 text-white d-flex align-items-center justify-content-center rounded-3 text-nowrap"
-            type="button"
-          >
-            Learn More About How It Works
-          </button>
-        </div>
+        
         <div
           class="badge text-bg-light border-secondary-subtle fw-normal text-wrap text-start d-flex gap-3 align-items-center rounded-3 p-3 mt-3 w-fit-content mx-auto bg-opacity-75"
         >

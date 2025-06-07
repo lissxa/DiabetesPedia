@@ -98,11 +98,6 @@ class SignInForm extends HTMLElement {
                           <i class="bi bi-eye-slash"></i>
                         </button>
                       </div>
-                      <a
-                        type="button"
-                        class="btn text-primary fw-semibold btn-sm text-decoration-underline p-0 text-center w-100 mt-2"
-                        >Forget Password?</a
-                      >
                     </div>
                     <div class="mb-3">
                       <button
@@ -112,24 +107,7 @@ class SignInForm extends HTMLElement {
                         Sign In
                       </button>
                     </div>
-                    <div class="mb-3">
-                      <p
-                        class="caption d-flex justify-content-center align-items-baseline column-gap-1 flex-wrap"
-                      >
-                        By login, I agree to GlucoTrack's
-                        <a
-                          type="button"
-                          class="btn btn-sm p-0 text-primary fw-semibold caption text-decoration-underline"
-                          >Terms of Service</a
-                        >
-                        and
-                        <a
-                          type="button"
-                          class="btn btn-sm p-0 text-primary fw-semibold caption text-decoration-underline"
-                          >Privacy Policy</a
-                        >
-                      </p>
-                    </div>
+                    
                     <div class="mb-3">
                       <div class="horizontal-divider bg-body-secondary"></div>
                     </div>

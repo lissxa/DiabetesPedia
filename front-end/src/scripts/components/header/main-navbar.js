@@ -56,7 +56,7 @@ class MainNavbar extends HTMLElement {
       template.innerHTML = `
         <div class="container-fluid padding-common">
           <a class="navbar-brand" href="/">
-            <img src="./src/public/images/logo/small logo.png" width="180" alt="Logo" />
+            <img src="./src/public/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar"
@@ -85,7 +85,7 @@ class MainNavbar extends HTMLElement {
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <button class="btn btn-light border border-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="src/public/images/dashboard/user-profile.png" alt="User Profile" width="24" height="24" />
+                  <img src="src/public/images/dashboard/profile.png" alt="User Profile" width="24" height="24" />
                 </button>
                 <ul class="dropdown-menu ">
                   <li><a class="dropdown-item" href="/settings" style="font-weight: bold;">Settings</a></li>
@@ -100,7 +100,7 @@ class MainNavbar extends HTMLElement {
       template.innerHTML = `
         <div class="container-fluid padding-common">
           <a class="navbar-brand" href="/">
-            <img src="./src/public/images/logo/small logo.png" width="180" alt="Logo" />
+            <img src="./src/public/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar"

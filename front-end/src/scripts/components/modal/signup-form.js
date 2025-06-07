@@ -54,7 +54,7 @@ class SignUpForm extends HTMLElement {
                 <div class="col-lg-5 p-0 pe-4">
                   <div class="modal-desc card bg-lightblue02 rounded-3 p-4 h-100 d-flex flex-column justify-content-center border-0 gap-3">
                     <h2 class="fw-bold text-primary">Sign Up for Diabetes Risk Assessment</h2>
-                    <p>Monitor and predict your risk -- get started now</p>
+                    <p>Monitor and predict your risk, get started now</p>
                   </div>
                 </div>
                 <div class="col-lg-7 p-0">
@@ -76,7 +76,7 @@ class SignUpForm extends HTMLElement {
                           <i class="bi bi-eye-slash"></i>
                         </button>
                       </div>
-                      <div class="form-text">Must be 8–20 characters long.</div>
+                      <div class="form-text">Must be at least 6 character.</div>
                     </div>
 
                     <div class="mb-3 position-relative">
@@ -92,10 +92,7 @@ class SignUpForm extends HTMLElement {
                     <div class="mb-3 form-check">
                       <input class="form-check-input" type="checkbox" id="checkTnC" required />
                       <label class="form-check-label" for="checkTnC">
-                        I agree to
-                        <a class="text-primary fw-semibold text-decoration-underline" href="#">Terms of Service</a>
-                        and
-                        <a class="text-primary fw-semibold text-decoration-underline" href="#">Privacy Policy</a>
+                        I understand that this app only provides predictions and does not replace professional medical advice.
                       </label>
                     </div>
 

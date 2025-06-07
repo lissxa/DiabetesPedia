@@ -5,6 +5,7 @@ class MyJumbotron extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.addButtonListener();
   }
 
   render() {
@@ -16,7 +17,7 @@ class MyJumbotron extends HTMLElement {
           <p class="fs-4 fw-semibold">
             Input your health data and receive insights to take charge of your wellness journey
           </p>
-          <button class="btn btn-primary fw-semibold btn-lg fs-6" type="button">
+          <button class="btn btn-primary fw-semibold btn-lg fs-6" type="button" id="predictButton">
             Start Your Prediction Now
           </button>
         </div>
@@ -25,6 +26,17 @@ class MyJumbotron extends HTMLElement {
 
     this.innerHTML = "";
     this.appendChild(template.content.cloneNode(true));
+  }
+
+  addButtonListener() {
+    setTimeout(() => {
+      const button = this.querySelector("#predictButton");
+      if (button) {
+        button.addEventListener("click", () => {
+          window.location.href = "/log-new-entry";
+        });
+      }
+    }, 100);
   }
 }
 

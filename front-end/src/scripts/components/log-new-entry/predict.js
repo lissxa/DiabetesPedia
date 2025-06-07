@@ -1,6 +1,16 @@
 export class DiabetesPrediction {
+  // constructor() {
+  //   this.apiUrl = "http://localhost:8000/predict";
+  //   this.init();
+  // }
+
   constructor() {
-    this.apiUrl = "http://localhost:8000/predict";
+    const isLocalhost = window.location.hostname === "localhost";
+
+    this.apiUrl = isLocalhost
+      ? "http://localhost:8000/predict"
+      : "https://talented-determination-production.up.railway.app/predict";
+
     this.init();
   }
 
@@ -36,7 +46,11 @@ export class DiabetesPrediction {
 
       const result = await this.sendPredictionRequest(formData);
 
-      this.displayResult(result);
+      sessionStorage.setItem(
+        "diabetesPredictionResult",
+        JSON.stringify(result)
+      );
+      window.location.href = "/prediction-result";
     } catch (error) {
       console.error("Prediction error:", error);
       this.showError(
@@ -172,194 +186,50 @@ export class DiabetesPrediction {
     return await response.json();
   }
 
-  displayResult(result) {
-    let resultContainer = document.getElementById("prediction-result");
-    if (!resultContainer) {
-      resultContainer = this.createResultContainer();
-    }
-
-    const isRisky =
-      result.prediction.toLowerCase().includes("rentan") ||
-      result.prediction.toLowerCase().includes("risk") ||
-      result.prediction.toLowerCase().includes("diabetes");
-    const probabilityPercent = (result.probability * 100).toFixed(2);
-
-    resultContainer.innerHTML = `
-                    <div class="card border-0 shadow-sm prediction-result">
-                        <div class="card-header bg-${
-                          isRisky ? "danger" : "success"
-                        } text-white">
-                            <h3 class="card-title mb-0 fs-4">
-                                <i class="fas fa-${
-                                  isRisky
-                                    ? "exclamation-triangle"
-                                    : "check-circle"
-                                } me-2"></i>
-                                Diabetes Risk Prediction Result
-                            </h3>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="p-3 rounded border bg-light">
-                                        <label class="form-label fw-bold text-secondary small">PREDICTION STATUS</label>
-                                        <div class="mt-2">
-                                            <span class="badge bg-${
-                                              isRisky ? "danger" : "success"
-                                            } fs-6 px-3 py-2">
-                                                ${result.prediction}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-3 rounded border bg-light">
-                                        <label class="form-label fw-bold text-secondary small">RISK PROBABILITY</label>
-                                        <div class="mt-2">
-                                            <div class="d-flex align-items-center">
-                                                <div class="progress flex-grow-1 me-3" style="height: 24px;">
-                                                    <div class="progress-bar bg-${
-                                                      isRisky
-                                                        ? "danger"
-                                                        : "success"
-                                                    }" 
-                                                         role="progressbar" 
-                                                         style="width: ${Math.min(
-                                                           parseFloat(
-                                                             probabilityPercent
-                                                           ),
-                                                           100
-                                                         )}%"
-                                                         aria-valuenow="${probabilityPercent}" 
-                                                         aria-valuemin="0" 
-                                                         aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                                <span class="fw-bold fs-5">${probabilityPercent}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <label class="form-label fw-bold text-secondary small">DETAILED EXPLANATION</label>
-                                <div class="p-3 rounded border bg-light mt-2">
-                                    <p class="mb-0 lh-base">${
-                                      result.explanation
-                                    }</p>
-                                </div>
-                            </div>
-                            
-                            <div class="alert alert-${
-                              isRisky ? "warning" : "info"
-                            } mt-4 mb-0">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-${
-                                      isRisky
-                                        ? "exclamation-triangle"
-                                        : "info-circle"
-                                    } me-2 mt-1"></i>
-                                    <div>
-                                        <strong>Important Note:</strong><br>
-                                        ${
-                                          isRisky
-                                            ? "This prediction indicates potential diabetes risk. Please consult with a healthcare professional immediately for proper medical evaluation and advice."
-                                            : "This prediction suggests lower diabetes risk based on the provided information. However, regular health monitoring and check-ups are still recommended for maintaining good health."
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center mt-4">
-                                <button type="button" class="btn btn-outline-primary" onclick="window.print()">
-                                    <i class="fas fa-print me-2"></i>Print Results
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary ms-2" onclick="location.reload()">
-                                    <i class="fas fa-redo me-2"></i>New Assessment
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-    resultContainer.style.display = "block";
-
-    setTimeout(() => {
-      resultContainer.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }, 100);
-  }
-
-  createResultContainer() {
-    const container = document.createElement("div");
-    container.id = "prediction-result";
-    container.className = "mt-5";
-    container.style.display = "none";
-
-    const mainCard = document.querySelector(".container .card");
-    mainCard.parentNode.appendChild(container);
-
-    return container;
-  }
-
   showLoading(show) {
     const submitButton = document.querySelector('button[type="submit"]');
-    if (!submitButton) return;
-
-    if (show) {
-      submitButton.disabled = true;
-      submitButton.innerHTML = `
-                        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                        Processing Prediction...
-                    `;
-    } else {
-      submitButton.disabled = false;
-      submitButton.innerHTML = `
-                        <i class="fas fa-chart-line me-2"></i>Get Prediction
-                    `;
+    if (submitButton) {
+      if (show) {
+        submitButton.disabled = true;
+        submitButton.innerHTML =
+          '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Predicting...';
+      } else {
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Predict Diabetes Risk";
+      }
     }
   }
 
   showError(message) {
-    let errorContainer = document.getElementById("error-message");
-    if (!errorContainer) {
-      errorContainer = document.createElement("div");
-      errorContainer.id = "error-message";
-      errorContainer.className = "alert alert-danger alert-dismissible mt-3";
+    this.hideError();
 
-      const submitArea = document.querySelector(
-        'button[type="submit"]'
-      ).parentElement;
-      submitArea.parentNode.insertBefore(errorContainer, submitArea);
-    }
+    const form = document.getElementById("diabetes-form");
+    if (!form) return;
 
-    errorContainer.innerHTML = `
-                    <div class="d-flex align-items-start">
-                        <i class="fas fa-exclamation-triangle me-2 mt-1"></i>
-                        <div class="flex-grow-1">
-                            <strong>Error:</strong> ${message}
-                        </div>
-                        <button type="button" class="btn-close" onclick="this.parentElement.parentElement.style.display='none'"></button>
-                    </div>
-                `;
-    errorContainer.style.display = "block";
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "alert alert-danger mt-3";
+    errorDiv.innerHTML = `
+      <div class="d-flex align-items-center">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        <div>${message}</div>
+      </div>
+    `;
 
+    form.appendChild(errorDiv);
     setTimeout(() => {
-      if (errorContainer && errorContainer.style.display !== "none") {
-        errorContainer.style.display = "none";
-      }
-    }, 8000);
-
-    errorContainer.scrollIntoView({ behavior: "smooth" });
+      errorDiv.classList.add("show");
+    }, 10);
   }
 
   hideError() {
-    const errorContainer = document.getElementById("error-message");
-    if (errorContainer) {
-      errorContainer.style.display = "none";
+    const existingError = document.querySelector(
+      "#diabetes-form .alert-danger"
+    );
+    if (existingError) {
+      existingError.classList.remove("show");
+      setTimeout(() => {
+        existingError.remove();
+      }, 300);
     }
   }
 }

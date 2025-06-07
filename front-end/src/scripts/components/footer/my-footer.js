@@ -33,16 +33,13 @@ class MyFooter extends HTMLElement {
                     </h5>
                     <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-column gap-2">
                         <li class="nav-item">
-                          <a class="nav-link" href="#">About Us</a>
+                          <a class="nav-link" href="/about-us">About Us</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Privacy Policy</a>
+                          <a class="nav-link" href="/blog">Blogs</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Terms of Service</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Contact Us</a>
+                          <a class="nav-link" href="/about-us">Contact Us</a>
                         </li>
                     </ul>
                   </div>
@@ -53,13 +50,13 @@ class MyFooter extends HTMLElement {
                     </h5>
                     <ul class="navbar-nav me-auto my-2 mb-lg-0 d-flex flex-column gap-2">
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Instagram</a>
+                          <a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Youtube</a>
+                          <a class="nav-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Youtube</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Twitter / X</a>
+                          <a class="nav-link" href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter / X</a>
                         </li>
                     </ul>
                   </div>

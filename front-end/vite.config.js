@@ -14,6 +14,7 @@ export default defineConfig({
         about: resolve(__dirname, "about-us.html"),
         blog: resolve(__dirname, "blog.html"),
         lognewentry: resolve(__dirname, "log-new-entry.html"),
+        result: resolve(__dirname, "prediction-result.html"),
       },
     },
   },

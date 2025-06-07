@@ -6,13 +6,6 @@ if (logNewEntryBtn) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const calculateBtn = document.getElementById("calculateBtn");
-
-  if (!calculateBtn) {
-    console.error("Calculate button not found!");
-    return;
-  }
-
   const heightInput = document.getElementById("bmi-height-input");
   const weightInput = document.getElementById("bmi-weight-input");
   const bmiResult = document.getElementById("bmi-result");
@@ -27,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const weightValid =
       !weightInput.classList.contains("is-invalid") &&
       weightInput.value.trim() !== "";
-    calculateBtn.disabled = !(heightValid && weightValid);
   }
 
   heightInput.addEventListener("input", () => {
@@ -40,12 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
       heightError.textContent =
         "Please fill in your height with a minimum of 3 digits!";
       heightInput.classList.add("is-invalid");
+    } else if (parseFloat(value) > 300) {
+      heightError.textContent = "Height cannot exceed 300 cm!";
+      heightInput.classList.add("is-invalid");
     } else {
       heightError.textContent = "";
       heightInput.classList.remove("is-invalid");
     }
 
-    checkFormValidity();
+    calculateBMI(); // Hitung BMI otomatis saat input berubah
   });
 
   weightInput.addEventListener("input", () => {
@@ -58,32 +53,33 @@ document.addEventListener("DOMContentLoaded", function () {
       weightError.textContent =
         "Please fill in your weight with at least 2 digits!";
       weightInput.classList.add("is-invalid");
+    } else if (parseFloat(value) > 300) {
+      weightError.textContent = "Weight cannot exceed 300 kg!";
+      weightInput.classList.add("is-invalid");
     } else {
       weightError.textContent = "";
       weightInput.classList.remove("is-invalid");
     }
 
-    checkFormValidity();
+    calculateBMI(); // Hitung BMI otomatis saat input berubah
   });
-
-  calculateBtn.addEventListener("click", calculateBMI);
 
   function calculateBMI() {
     const height = parseFloat(heightInput.value);
     const weight = parseFloat(weightInput.value);
     bmiCategory.className = "";
 
-    if (isNaN(height) || height <= 0) {
+    // Jika input tidak valid, kosongkan hasil
+    if (
+      isNaN(height) ||
+      height <= 0 ||
+      height > 300 ||
+      isNaN(weight) ||
+      weight <= 0 ||
+      weight > 300
+    ) {
       bmiResult.value = "";
-      bmiCategory.textContent = "Input a valid height!";
-      bmiCategory.classList.add("text-danger");
-      return;
-    }
-
-    if (isNaN(weight) || weight <= 0) {
-      bmiResult.value = "";
-      bmiCategory.textContent = "Input a valid weight!";
-      bmiCategory.classList.add("text-danger");
+      bmiCategory.textContent = "";
       return;
     }
 
@@ -113,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bmiCategory.innerHTML = `<span class="${categoryClass}">${category}</span>`;
   }
 
+  // Inisialisasi awal
   bmiResult.value = "";
   bmiCategory.textContent = "";
-  calculateBtn.disabled = true;
 });
