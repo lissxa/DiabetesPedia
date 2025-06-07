@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiabetesPedia</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward,check,close,error,info,star,star_half,stars_2,warning"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      /* Style untuk loading state dan notifikasi */
+      .loading {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .btn.loading::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        border: 2px solid transparent;
+        border-top: 2px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <script type="module" src="./app.js"></script>
+
+    <script>
+      // Function untuk menambahkan loading state ke button
+      function setButtonLoading(button, isLoading) {
+        if (isLoading) {
+          button.classList.add("loading");
+          button.disabled = true;
+          button.dataset.originalText = button.textContent;
+          button.textContent = "Loading...";
+        } else {
+          button.classList.remove("loading");
+          button.disabled = false;
+          button.textContent = button.dataset.originalText;
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-lightgrey03" onload="">
+    <header class="bg-image-settings position-relative">
+      <div
+        class="linear-gradient-bg white-gradient-bg position-absolute top-0 start-0 w-100 h-100 z-0"
+      ></div>
+      <main-navbar
+        class="navbar navbar-expand-lg position-relative z-3 py-4"
+      ></main-navbar>
+      <my-jumbotron
+        class="jumbotron padding-common py-5 w-100 position-relative z-1 d-flex align-items-center justify-content-center"
+      ></my-jumbotron>
+      <customer-rating
+        class="container-fluid d-flex align-items-center justify-content-center gap-3 py-4 bg-primary position-relative z-2 flex-wrap padding-common"
+      ></customer-rating>
+    </header>
+
+    <main id="main-content" class="d-flex flex-column gap-5 pt-5">
+      <the-steps
+        id="the-steps"
+        class="padding-common d-flex flex-column gap-5"
+      ></the-steps>
+      <learn-more
+        id="learn-more"
+        class="padding-common position-relative bg-image-settings"
+      >
+      </learn-more>
+
+      <the-features
+        id="the-features"
+        class="padding-common d-flex flex-column gap-5"
+      >
+      </the-features>
+
+      <section
+        id="testimonials"
+        class="carousel carousel-dark slide padding-common py-5 bg-lightblue02"
+      >
+        <div class="d-flex align-items-center">
+          <div
+            class="position-relative d-flex flex-column z-1 justify-content-between h-100 w-100 text-center gap-2"
+          >
+            <h6>
+              <span class="badge text-bg-warning fw-semibold px-3 py-2">
+                Our Testimonials
+              </span>
+            </h6>
+            <div class="d-flex flex-column gap-2">
+              <h2 class="fw-bold">What Are Our User Saying</h2>
+              <p>
+                Hear how others have benefited from using our prediction tool
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel items go here -->
+        <div class="carousel-inner mt-5" id="testimonials-content">
+          <testimonial-list></testimonial-list>
+        </div>
+
+        <!-- Carousel controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#testimonials"
+          data-bs-slide="prev"
+        >
+          <div class="p-2 bg-primary rounded-3">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </div>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#testimonials"
+          data-bs-slide="next"
+        >
+          <div class="p-2 bg-primary rounded-3">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </div>
+        </button>
+      </section>
+
+      <section id="blogs" class="carousel carousel-dark slide padding-common">
+        <div class="d-flex align-items-center">
+          <div
+            class="position-relative d-flex flex-column z-1 justify-content-between h-100 w-100 text-center gap-3"
+          >
+            <h6>
+              <span class="badge text-bg-warning fw-semibold px-3 py-2"
+                >Blogs</span
+              >
+            </h6>
+            <div class="d-flex flex-column gap-2">
+              <h2 class="fw-bold">Learn More About Diabetes</h2>
+              <p>
+                Access expert knowledge and tips to support your diabetes
+                management journey
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-inner mt-5" id="testimonials-content">
+          <blog-list></blog-list>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#blogs"
+          data-bs-slide="prev"
+        >
+          <div class="p-2 bg-primary rounded-3">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </div>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#blogs"
+          data-bs-slide="next"
+        >
+          <div class="p-2 bg-primary rounded-3">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </div>
+        </button>
+
+        <div class="carousel-indicators position-relative mt-4">
+          <button
+            type="button"
+            data-bs-target="#blogs"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#blogs"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#blogs"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+      </section>
+
+      <home-banner
+        class="padding-common bg-primary py-5 position-relative"
+        id="home-banner"
+      >
+      </home-banner>
+
+      <signin-form
+        class="modal fade"
+        id="signInModal"
+        tabindex="-1"
+        aria-labelledby="signInModalLabel"
+        aria-hidden="true"
+      ></signin-form>
+
+      <signup-form
+        class="modal fade"
+        id="signUpModal"
+        tabindex="-1"
+        aria-labelledby="signUpModalLabel"
+        aria-hidden="true"
+      >
+      </signup-form>
+
+      <setupprofile-form
+        class="modal fade"
+        id="setUpProfile"
+        tabindex="-1"
+        aria-labelledby="setUpProfileLabel"
+        aria-hidden="true"
+      >
+      </setupprofile-form>
+    </main>
+
+    <footer
+      class="py-5 d-flex flex-column gap-4 padding-common position-relative"
+    >
+      <img
+        src="/src/public/images/logo/small logo.png"
+        id="footer-logo"
+        alt=""
+      />
+      <my-footer class="container-fluid"></my-footer>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
