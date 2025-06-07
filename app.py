@@ -6,12 +6,8 @@ import pandas as pd
 import tensorflow as tf
 import joblib
 # from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
-import os
-from dotenv import load_dotenv
 import uvicorn
 
-# Load environment variables
-load_dotenv()
 
 # Load model klasifikasi diabetes
 model = tf.keras.models.load_model("model/best_model_cnn.h5")
