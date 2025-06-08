@@ -19,7 +19,7 @@ class BlogCard extends HTMLElement {
               <div class="col-sm-12 col-md-6">
                 <div
                   class="h-100 blog-image bg-image-settings rounded-3"
-                ></div>
+                style="background-image: url(${this._blog.imageUrl})"></div>
               </div>
               <div class="col-sm-12 col-md-6 d-flex flex-column gap-3">
                 <h6 class="upload-datetime">${this._blog.datetime}</h6>
@@ -27,13 +27,13 @@ class BlogCard extends HTMLElement {
                   <h5 class="card-title fw-semibold fs-4">
                     ${this._blog.title}
                   </h5>
-                  <p class="card-text">
+                  <p class="card-text multi-line-ellipsis--mask">
                     ${this._blog.desc}
                   </p>
                 </div>
                 <a
                   href="#"
-                  class="card-button btn btn-secondary fw-semibold fs-6 mt-2"
+                  class="card-button btn btn-secondary fw-semibold fs-6 mt-2 py-2 fw-bold"
                   >Read More</a
                 >
               </div>

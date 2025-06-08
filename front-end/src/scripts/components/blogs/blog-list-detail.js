@@ -30,7 +30,7 @@ class BlogListDetail extends HTMLElement {
 
     const section = template.content.cloneNode(true);
     const contentContainer = section.querySelector(
-      "#recent-blogs-content > .row",
+      "#recent-blogs-content > .row"
     );
 
     this._blogs.forEach((blog) => {
@@ -45,6 +45,7 @@ class BlogListDetail extends HTMLElement {
     });
 
     this.appendChild(section);
+    this.className = "d-flex flex-column gap-4";
   }
 }
 
