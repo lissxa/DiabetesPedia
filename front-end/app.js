@@ -28,6 +28,7 @@ import {
   renderBlogsHome,
   renderBlogsDetail,
   signUpForm,
+  renderLoadBlogButton,
   auth,
 } from "./src/scripts/index.js";
 
@@ -36,3 +37,4 @@ renderTestimonials();
 renderBlogsHome();
 renderBlogsDetail();
 signUpForm();
+renderLoadBlogButton();

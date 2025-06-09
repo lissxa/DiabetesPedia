@@ -26,7 +26,7 @@
 
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward,check,close,error,info,star,star_half,stars_2,warning"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward,check,close,error,info,play_arrow,star,star_half,stars_2,warning"
     />
 
     <link
@@ -151,12 +151,10 @@
           </div>
         </div>
 
-        <!-- Carousel items go here -->
         <div class="carousel-inner mt-5" id="testimonials-content">
           <testimonial-list></testimonial-list>
         </div>
 
-        <!-- Carousel controls -->
         <button
           class="carousel-control-prev"
           type="button"
@@ -179,9 +177,36 @@
             <span class="visually-hidden">Next</span>
           </div>
         </button>
+
+        <div class="carousel-indicators position-relative mt-4">
+          <button
+            type="button"
+            data-bs-target="#testimonils"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#testimonils"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#testimonils"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
       </section>
 
-      <section id="blogs" class="carousel carousel-dark slide padding-common">
+      <section
+        id="blogs"
+        class="carousel carousel-dark slide padding-common"
+        data-bs-ride="carousel"
+      >
         <div class="d-flex align-items-center">
           <div
             class="position-relative d-flex flex-column z-1 justify-content-between h-100 w-100 text-center gap-3"

@@ -1,6 +1,7 @@
 import auth from "./auth.js";
 import TestimonialData from "./data/TESTIMONIAL.json";
 import BlogData from "./data/BLOGS.json";
+import "./components/ui-components/big-button";
 
 // Render Testimonial
 function renderTestimonials() {
@@ -80,10 +81,27 @@ function initializeSignUpForm() {
   }
 }
 
+function renderLoadBlogButton() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const blogListDetail = document.querySelector("blog-list-detail");
+
+    if (blogListDetail) {
+      const button = document.createElement("big-button");
+      button.label = "Load More Blogs";
+      button.type = "btn-primary";
+      button.btnId = "loadMoreBlogsButton";
+      button.btnTagElement = "button";
+
+      blogListDetail.insertAdjacentElement("beforeend", button);
+    }
+  });
+}
+
 export {
   renderTestimonials,
   renderBlogsHome,
   renderBlogsDetail,
   initializeSignUpForm as signUpForm,
+  renderLoadBlogButton,
   auth,
 };

@@ -15,7 +15,7 @@ class CustomerRating extends HTMLElement {
     template.innerHTML = `          
     <h3 class="fs-5 text-white">Our Customers Say</h3>
       <div
-        class="rating d-flex align-items-center gap-3 px-4 py-3 bg-white rounded-3 flex-wrap w-fit-content"
+        class="rating d-flex align-items-center justify-content-center gap-3 px-4 py-3 bg-white rounded-3 flex-wrap w-fit-content"
       >
         <p class="rating-category fw-bold fs-4 text-danger">EXCELLENT</p>
         <div

@@ -2,18 +2,23 @@
   "testimonials": [
     {
       "id": 1,
-      "review": "1. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
+      "review": "I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
       "name": "Esther Horward"
     },
     {
       "id": 2,
-      "review": "2. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
-      "name": "Esther Horward"
+      "review": "I've tried many apps before, but this one stands out. The predictions are surprisingly accurate, and the tracking features keep me motivated to stay consistent. It’s like having a personal health assistant in my pocket!",
+      "name": "Michael Bennett"
     },
     {
       "id": 3,
-      "review": "3. I always struggle to keep track of my health, but this tool made it so simple. The predictions gave me a clear picture of my risk level, and the personalized tips have been a game charger. I feel more confident managing my wellness now!",
-      "name": "Esther Horward"
+      "review": "This app is a lifesaver! It not only helps me log my sugar levels but also provides actionable insights to improve my lifestyle. I can’t thank the creators enough for making diabetes management so stress-free.",
+      "name": "Lisa Anderson"
+    },
+    {
+      "id": 4,
+      "review": "At first, I was skeptical about using a tracker, but this app exceeded my expectations. The interface is so user-friendly, and the reminders ensure I never miss a log. It’s a must-have for anyone managing diabetes!",
+      "name": "Rajesh Patel"
     }
   ]
 }

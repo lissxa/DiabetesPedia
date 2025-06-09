@@ -1,3 +1,5 @@
+import "../ui-components/big-button";
+
 class AboutUs extends HTMLElement {
   constructor() {
     super();
@@ -82,9 +84,6 @@ class AboutUs extends HTMLElement {
         <div class="cta-box text-center mt-5 p-5 rounded-4 reveal" style="max-width: 800px; width: 100%; animation-delay: 0.8s;">
             <h3 class="display-6 fw-bold mb-4" style="color: #2c3e50;">Join Our Wellness Journey!</h3>
             <p class="fs-5 mb-4 text-muted">Take the first step towards better health with DiabetesPedia</p>
-            <a href="/log-new-entry" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-sm">
-            Start Your Assessment Now <i class="fas fa-arrow-right ms-2"></i>
-            </a>
         </div>
         </section>
         <section id="about-us-team" class="padding-common mt-5 d-flex flex-column gap-5">
@@ -152,6 +151,20 @@ class AboutUs extends HTMLElement {
 
     this.innerHTML = "";
     this.appendChild(template.content.cloneNode(true));
+
+    // Create and configure the big-button
+    const button = document.createElement("big-button");
+    button.label = "Start Your Assessment Now";
+    button.type = "btn-primary";
+    button.btnId = "";
+    button.btnTagElement = "a";
+    button.className = "btn btn-primary shadow-sm p-0";
+
+    this.querySelector(".cta-box").appendChild(button);
+
+    document
+      .querySelector("big-button a")
+      .setAttribute("href", "/log-new-entry");
   }
 }
 

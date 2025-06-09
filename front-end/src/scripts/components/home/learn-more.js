@@ -11,7 +11,7 @@ class LearnMore extends HTMLElement {
 
   render() {
     const template = document.createElement("template");
-    template.innerHTML = `      
+    template.innerHTML = `  
       <div
         class="linear-gradient-bg blue-gradient-bg position-absolute top-0 start-0 w-100 h-100 z-0"
       ></div>
@@ -42,11 +42,11 @@ class LearnMore extends HTMLElement {
             class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center"
             id="play-button-section"
           >
-            <div
-              class="play-button p-2 bg-white rounded-circle z-2 d-flex align-items-center justify-content-center"
+            <button
+              class="btn play-button p-2 bg-white rounded-circle z-2 d-flex align-items-center justify-content-center"
             >
-              <img width="42" height="42" src="${play_icon}" alt=""/>
-              </div>
+              <i class="bi bi-play-fill text-primary" style="font-size: 2.5rem"></i>
+            </button>
           </div>
         </div>
       </div>

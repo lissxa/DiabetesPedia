@@ -12,7 +12,7 @@ class SearchBlog extends HTMLElement {
     template.innerHTML = `      
       <div
         id="search-blog-section"
-        class="card p-2 rounded-3 w-75 mx-auto border-0 position-absolute start-50 bottom-0" style="max-width: 1320px"
+        class="card p-2 rounded-3 w-75 mx-auto border-0 position-absolute start-50 bottom-0 shadow-sm" style="max-width: 1320px"
       >
         <div class="card-body">
           <div class="row row-gap-3">
