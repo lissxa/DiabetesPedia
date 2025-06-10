@@ -42,8 +42,8 @@ class MainNavbar extends HTMLElement {
     const currentUser = this.getCurrentUser();
     const currentPath = window.location.pathname;
     const isActive = (path) => {
-      if (path === "/home") {
-        return currentPath === "/" || currentPath === "/home"
+      if (path === "/") {
+        return currentPath === "/" || currentPath === "/"
           ? "active fw-bold text-primary"
           : "";
       }
@@ -56,7 +56,7 @@ class MainNavbar extends HTMLElement {
       template.innerHTML = `
         <div class="container-fluid padding-common">
           <a class="navbar-brand" href="/">
-            <img src="./src/public/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
+            <img src="/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar"
@@ -66,7 +66,7 @@ class MainNavbar extends HTMLElement {
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link ${isActive("/home")}" href="/home">Home</a>
+                <a class="nav-link ${isActive("/")}" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive("/blog")}" href="/blog">Blog</a>
@@ -78,6 +78,11 @@ class MainNavbar extends HTMLElement {
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive(
+                  "/contact-us"
+                )}" href="/contact-us">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ${isActive(
                   "/dashboard"
                 )}" href="/dashboard">Dashboard</a>
               </li>
@@ -85,10 +90,9 @@ class MainNavbar extends HTMLElement {
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <button class="btn btn-light border border-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="src/public/images/dashboard/profile.png" alt="User Profile" width="24" height="24" />
+                  <img src="/images/dashboard/profile.png" alt="User Profile" width="24" height="24" />
                 </button>
                 <ul class="dropdown-menu ">
-                  <li><a class="dropdown-item" href="/settings" style="font-weight: bold;">Settings</a></li>
                   <li><a class="dropdown-item" href="#" id="logoutButton" style="color: red; font-weight: bold;">Sign Out</a></li>
                 </ul>
               </li>
@@ -100,7 +104,7 @@ class MainNavbar extends HTMLElement {
       template.innerHTML = `
         <div class="container-fluid padding-common">
           <a class="navbar-brand" href="/">
-            <img src="./src/public/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
+            <img src="/images/logo/logo_landscape_text.png" width="180" alt="Logo" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar"
@@ -110,7 +114,7 @@ class MainNavbar extends HTMLElement {
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link ${isActive("/home")}" href="/home">Home</a>
+                <a class="nav-link ${isActive("/")}" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive("/blog")}" href="/blog">Blog</a>
@@ -119,6 +123,11 @@ class MainNavbar extends HTMLElement {
                 <a class="nav-link ${isActive(
                   "/about-us"
                 )}" href="/about-us">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ${isActive(
+                  "/contact-us"
+                )}" href="/contact-us">Contact Us</a>
               </li>
             </ul>
             <div class="d-flex gap-2">

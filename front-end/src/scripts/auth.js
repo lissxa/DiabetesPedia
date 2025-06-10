@@ -142,9 +142,13 @@ function auth() {
   }
 
   function handleLogout() {
+    sessionStorage.removeItem("diabetesPredictionResult");
+    sessionStorage.removeItem("selectedHistoryPrediction");
+    sessionStorage.removeItem("selectedPredictionIndex");
+
     localStorage.removeItem("currentUser");
-    showNotification("Logout successful!", "success");
-    window.dispatchEvent(new Event("authChange"));
+
+    window.location.href = "/";
   }
 
   function getCurrentUser() {
@@ -174,7 +178,6 @@ function auth() {
     }
   });
 
-  // Public API
   return {
     getCurrentUser,
     handleLogout,

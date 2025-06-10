@@ -32,12 +32,7 @@ class TheSteps extends HTMLElement {
                 01
               </div>
               <div class="card-body d-flex flex-column gap-4">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/material-rounded/24/task.png"
-                  alt="task"
-                />
+                <i class="bi bi-clipboard2-pulse fs-1 text-primary"></i>
                 <div class="d-flex flex-column gap-2">
                   <h3 class="card-title fs-3 fw-bolder">
                     Input Your Health Information
@@ -57,12 +52,7 @@ class TheSteps extends HTMLElement {
                 02
               </div>
               <div class="card-body d-flex flex-column gap-4">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/ios-filled/50/diabetes-monitor.png"
-                  alt="diabetes-monitor"
-                />
+                <i class="bi bi-clipboard2-heart fs-1 text-primary"></i>
                 <div class="d-flex flex-column gap-2">
                   <h3 class="card-title fs-3 fw-bolder">Get Your Results</h3>
                   <p class="card-text fs-6">
@@ -80,12 +70,7 @@ class TheSteps extends HTMLElement {
                 03
               </div>
               <div class="card-body d-flex flex-column gap-4">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/material-rounded/24/ingredients-list.png"
-                  alt="ingredients-list"
-                />
+                <i class="bi bi-heart-pulse fs-1 text-primary"></i>
                 <div class="d-flex flex-column gap-2">
                   <h3 class="card-title fs-3 fw-bolder">Take Action</h3>
                   <p class="card-text fs-6">

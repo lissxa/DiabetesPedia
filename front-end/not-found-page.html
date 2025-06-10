@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/styles/not-found-page.css" />
+  </head>
+  <body>
+    <div class="not-found-container">
+      <div class="error-card">
+        <div class="text-center p-5">
+          <!-- Floating Icons -->
+          <div class="position-relative mb-4">
+            <i
+              class="bi bi-question-circle floating-icon position-absolute"
+              style="
+                font-size: 2rem;
+                top: -20px;
+                left: 20%;
+                animation-delay: 0s;
+              "
+            ></i>
+            <i
+              class="bi bi-search floating-icon position-absolute"
+              style="
+                font-size: 1.5rem;
+                top: -10px;
+                right: 25%;
+                animation-delay: 1s;
+              "
+            ></i>
+            <i
+              class="bi bi-exclamation-triangle floating-icon position-absolute"
+              style="
+                font-size: 1.8rem;
+                top: -30px;
+                right: 10%;
+                animation-delay: 2s;
+              "
+            ></i>
+          </div>
+
+          <div class="error-number pulse">404</div>
+
+          <h2 class="fw-bold text-dark mb-3">Oops! Page Not Found</h2>
+          <p class="text-muted mb-4 fs-5">
+            The page you're looking for seems to have wandered off into the
+            digital wilderness. Don't worry, it happens to the best of us!
+          </p>
+
+          <div class="d-flex gap-3 justify-content-center flex-wrap mb-4">
+            <a href="/" class="btn-home">
+              <i class="bi bi-house-door"></i>
+              Back to Home
+            </a>
+            <button onclick="history.back()" class="btn-back">
+              <i class="bi bi-arrow-left"></i>
+              Go Back
+            </button>
+          </div>
+
+          <div class="suggestions p-4 mt-4">
+            <h5 class="fw-bold mb-3 text-dark">
+              <i class="bi bi-lightbulb text-warning me-2"></i>
+              Maybe you were looking for:
+            </h5>
+            <div class="row g-2 text-start">
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-clipboard-data text-primary me-2"></i>
+                    <a href="/log-new-entry" class="suggestion-link"
+                      >Health Prediction</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-graph-up text-success me-2"></i>
+                    <a href="/about-us" class="suggestion-link">About Us</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-book text-info me-2"></i>
+                    <a href="/blog" class="suggestion-link">Health Articles</a>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-person-circle text-secondary me-2"></i>
+                    <a href="/contact-us" class="suggestion-link">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-top">
+            <p class="text-muted small mb-0">
+              <i class="bi bi-info-circle me-1"></i>
+              If you believe this is an error, please contact our support team
+              or try refreshing the page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const floatingIcons = document.querySelectorAll(".floating-icon");
+        floatingIcons.forEach((icon) => {
+          icon.addEventListener("click", function () {
+            this.style.transform = "scale(1.2)";
+            setTimeout(() => {
+              this.style.transform = "";
+            }, 200);
+          });
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            const homeBtn = document.querySelector(".btn-home");
+            if (document.activeElement === homeBtn) {
+              homeBtn.click();
+            }
+          }
+
+          if (e.key === "Escape") {
+            history.back();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

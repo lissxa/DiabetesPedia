@@ -21,7 +21,7 @@ class MyFooter extends HTMLElement {
                   <div class="horizontal-divider bg-body-secondary"></div>
                   <div class="city-copyright">
                   <p>Medan, Indonesia</p>
-                  <p>DiabetesPedia 2025. All right reserved</p>
+                  <p>&copy DiabetesPedia 2025. All right reserved</p>
                   </div>
               </div>
               </div>
@@ -39,7 +39,7 @@ class MyFooter extends HTMLElement {
                           <a class="nav-link" href="/blog">Blogs</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/about-us">Contact Us</a>
+                          <a class="nav-link" href="/contact-us">Contact Us</a>
                         </li>
                     </ul>
                   </div>

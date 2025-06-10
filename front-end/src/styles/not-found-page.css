@@ -1,0 +1,133 @@
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: "Quicksand", sans-serif;
+}
+
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  margin: 20px;
+}
+
+.error-number {
+  font-size: 8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  text-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.floating-icon {
+  animation: float 3s ease-in-out infinite;
+  color: #8b5cf6;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.btn-home {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  color: white;
+}
+
+.btn-back {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  transform: translateY(-1px);
+  color: white;
+}
+
+.suggestions {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.suggestion-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.suggestion-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .error-number {
+    font-size: 6rem;
+  }
+
+  .error-card {
+    margin: 10px;
+  }
+}

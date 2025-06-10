@@ -26,65 +26,102 @@ class TheFeatures extends HTMLElement {
           </p>
         </div>
       </div>
-      <div class="d-grid gap-4" id="the-features-content">
-        <div class="card p-3 rounded-4 border-0">
-          <div class="card-body d-flex flex-column gap-2">
-            <h3 class="card-title fs-3 fw-bolder">Log Your Data</h3>
-            <p class="card-text">
-              Track your health over time with simple form entries
-            </p>
-          </div>
-          <div class="h-100 d-flex align-items-center justify-content-center">
-            <img
-              src="src/public/images/homepage/feature-01.gif"
-              class="feature-gif card-img-bottom"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="card p-3 rounded-4 border-0">
-          <div class="card-body order-2 d-flex flex-column gap-2">
-            <h3 class="card-title fs-3 fw-bolder">View Your History</h3>
-            <p class="card-text">
-              Review past entries and see trends in your prediction
-            </p>
-          </div>
-          <div class="h-100 d-flex align-items-center justify-content-center">
-            <img
-              src="src/public/images/homepage/feature-02.gif"
-              class="feature-gif card-img-bottom order-1"
-              alt=""
-            />
+      
+      
+      <div class="row g-4" id="the-features-content">
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                <i class="bi bi-clipboard-data feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #1e40af;">Log Your Data</h4>
+                <p class="card-text mb-0 text-muted">
+                  Track your health metrics with simple form entries
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card p-3 rounded-4 border-0">
-          <div class="card-body order-2 d-flex flex-column gap-2">
-            <h3 class="card-title fs-3 fw-bolder">Set reminders</h3>
-            <p class="card-text">
-              Get notified for logging with customizable notifications
-            </p>
-          </div>
-          <div class="h-100 d-flex align-items-center justify-content-center">
-            <img
-              src="src/public/images/homepage/feature-03.gif"
-              class="feature-gif card-img-bottom order-1"
-              alt=""
-            />
+        
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                <i class="bi bi-graph-up feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #0891b2;">View Your History</h4>
+                <p class="card-text mb-0 text-muted">
+                  Review past entries and analyze your health trends
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card p-3 rounded-4 border-0">
-          <div class="card-body d-flex flex-column gap-2">
-            <h3 class="card-title fs-3 fw-bolder">Learn From Experts</h3>
-            <p class="card-text">
-              Explore blogs about diabetes care and prevention
-            </p>
+        
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3 pulse-animation" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                <i class="bi bi-lightbulb feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #7c3aed;">Get Smart Insights</h4>
+                <p class="card-text mb-0 text-muted">
+                  Receive AI-powered health recommendations
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="h-100 d-flex align-items-center justify-content-center">
-            <img
-              src="src/public/images/homepage/feature-04.gif"
-              class="feature-gif card-img-bottom"
-              alt=""
-            />
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <i class="bi bi-shield-check feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #059669;">Risk Assessment</h4>
+                <p class="card-text mb-0 text-muted">
+                  Get personalized diabetes risk evaluation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <i class="bi bi-book feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #d97706;">Learn From Experts</h4>
+                <p class="card-text mb-0 text-muted">
+                  Access curated articles about diabetes prevention
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card feature-card p-4 rounded-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #ec4899, #db2777);">
+                <i class="bi bi-heart-pulse feature-icon text-white" style="font-size: 2rem;"></i>
+              </div>
+              <div>
+                <h4 class="card-title fw-bold mb-1" style="color: #db2777;">Health Monitoring</h4>
+                <p class="card-text mb-0 text-muted">
+                  Monitor vital signs and health indicators
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

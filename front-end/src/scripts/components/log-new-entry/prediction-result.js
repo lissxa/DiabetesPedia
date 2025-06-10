@@ -7,7 +7,31 @@ class PredictionResult {
   }
 
   init() {
-    const resultData = sessionStorage.getItem("diabetesPredictionResult");
+    const historyPrediction = sessionStorage.getItem(
+      "selectedHistoryPrediction"
+    );
+    const currentPrediction = sessionStorage.getItem(
+      "diabetesPredictionResult"
+    );
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || {});
+
+    let resultData = null;
+    let isHistoryPrediction = false;
+
+    if (historyPrediction) {
+      const parsedHistory = JSON.parse(historyPrediction);
+      if (!parsedHistory.userId || parsedHistory.userId === currentUser.id) {
+        resultData = historyPrediction;
+        isHistoryPrediction = true;
+      }
+    } else if (currentPrediction) {
+      const parsedCurrent = JSON.parse(currentPrediction);
+      if (!parsedCurrent.userId || parsedCurrent.userId === currentUser.id) {
+        resultData = currentPrediction;
+        isHistoryPrediction = false;
+      }
+    }
 
     if (!resultData) {
       window.location.href = "/log-new-entry";
@@ -15,20 +39,19 @@ class PredictionResult {
     }
 
     const result = JSON.parse(resultData);
-    this.displayResult(result);
+    this.displayResult(result, isHistoryPrediction);
   }
 
-  displayResult(result) {
-    const translatedPrediction = result.prediction.includes("Tidak Rentan")
+  displayResult(result, isHistoryPrediction = false) {
+    const translatedPrediction = result.prediction?.includes("Tidak Rentan")
       ? "<strong>Low Diabetes Risk</strong>"
-      : result.prediction.includes("Rentan")
+      : result.prediction?.includes("Rentan")
       ? "<strong>High Diabetes Risk</strong>"
-      : result.prediction;
+      : result.prediction || "Risk Assessment";
 
     const probability = result.probability;
     const probabilityPercent = (probability * 100).toFixed(2);
 
-    // Determine styling based on risk level
     let riskColor, riskIcon, riskLevel, bgGradient, textColor, pulseClass;
     if (probability < 0.3) {
       riskColor = "success";
@@ -61,14 +84,30 @@ class PredictionResult {
       textColor
     );
 
+    const predictionDate = result.date ? new Date(result.date) : new Date();
+    const formattedDate = this.formatPredictionDate(predictionDate);
+
+    const headerTitle = isHistoryPrediction
+      ? "Historical Diabetes Risk Assessment"
+      : "Diabetes Risk Assessment";
+
+    const headerSubtitle = isHistoryPrediction
+      ? `Assessment from ${formattedDate}`
+      : "Complete Health Analysis Results";
+
     this.resultContainer.innerHTML = `
       <div class="card border-0 prediction-result">
         <div class="enhanced-header" style="background: ${bgGradient}">
           <div class="header-content text-center text-white">
             <div class="d-flex flex-column align-items-center">
+              ${
+                isHistoryPrediction
+                  ? '<i class="bi-clock-history fs-4 mb-2 opacity-75"></i>'
+                  : ""
+              }
               <i class="${riskIcon} fs-1 mb-3" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));"></i>
-              <h2 class="fw-bold mb-2" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3));">Diabetes Risk Assessment</h2>
-              <p class="mb-0 opacity-90 fs-5">Complete Health Analysis Results</p>
+              <h2 class="fw-bold mb-2" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3));">${headerTitle}</h2>
+              <p class="mb-0 opacity-90 fs-5">${headerSubtitle}</p>
             </div>
           </div>
         </div>
@@ -86,6 +125,16 @@ class PredictionResult {
                     <i class="bi-info-circle me-2 ${textColor}"></i>
                     <span class="text-slate-600">Risk Level: ${riskLevel}</span>
                   </div>
+                  ${
+                    isHistoryPrediction
+                      ? `
+                    <div class="d-flex align-items-center justify-content-center">
+                      <i class="bi-calendar-event me-2 text-slate-400"></i>
+                      <small class="text-slate-500">Assessed on ${formattedDate}</small>
+                    </div>
+                  `
+                      : ""
+                  }
                 </div>
               </div>
             </div>
@@ -106,13 +155,41 @@ class PredictionResult {
           ${customExplanation}
 
           <div class="action-buttons mt-5 text-center">
+            <button class="btn btn-outline-secondary me-3" onclick="window.location.href = '/dashboard'">
+              <i class="bi-arrow-left me-2"></i>Back to Dashboard
+            </button>
             <button class="btn btn-primary me-3" onclick="window.print()">
               <i class="bi-printer me-2"></i>Print Results
             </button>
+            ${
+              !isHistoryPrediction
+                ? `
+              <a href="/log-new-entry" class="btn btn-outline-primary">
+                <i class="bi-plus-circle me-2"></i>New Assessment
+              </a>
+            `
+                : ""
+            }
           </div>
         </div>
       </div>
     `;
+  }
+
+  formatPredictionDate(date) {
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 1) return "Today";
+    if (diffDays === 2) return "Yesterday";
+    if (diffDays <= 7) return `${diffDays - 1} days ago`;
+
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: date.getFullYear() !== now.getFullYear() ? "numeric" : undefined,
+    });
   }
 
   getCustomExplanation(probability, probabilityPercent, pulseClass, textColor) {
@@ -388,4 +465,11 @@ class PredictionResult {
 
 document.addEventListener("DOMContentLoaded", () => {
   new PredictionResult();
+
+  if (sessionStorage.getItem("selectedHistoryPrediction")) {
+    setTimeout(() => {
+      sessionStorage.removeItem("selectedHistoryPrediction");
+      sessionStorage.removeItem("selectedPredictionIndex");
+    }, 1000);
+  }
 });

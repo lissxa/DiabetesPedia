@@ -86,13 +86,32 @@ function renderLoadBlogButton() {
     const blogListDetail = document.querySelector("blog-list-detail");
 
     if (blogListDetail) {
-      const button = document.createElement("big-button");
-      button.label = "Load More Blogs";
-      button.type = "btn-primary";
-      button.btnId = "loadMoreBlogsButton";
-      button.btnTagElement = "button";
+      const loadMoreButton = document.createElement("big-button");
+      loadMoreButton.label = "Load More Blogs";
+      loadMoreButton.type = "btn-primary";
+      loadMoreButton.btnId = "loadMoreBlogsButton";
+      loadMoreButton.btnTagElement = "button";
 
-      blogListDetail.insertAdjacentElement("beforeend", button);
+      blogListDetail.insertAdjacentElement("beforeend", loadMoreButton);
+
+      loadMoreButton.addEventListener("click", () => {
+        blogListDetail.showAllBlogs();
+        loadMoreButton.remove();
+
+        const showLessBlogButton = document.createElement("big-button");
+        showLessBlogButton.label = "Show Less Blogs";
+        showLessBlogButton.type = "btn-primary";
+        showLessBlogButton.btnId = "showLessBlogsButton";
+        showLessBlogButton.btnTagElement = "button";
+
+        blogListDetail.insertAdjacentElement("beforeend", showLessBlogButton);
+
+        showLessBlogButton.addEventListener("click", () => {
+          blogListDetail.showInitialBlogs();
+          showLessBlogButton.remove();
+          blogListDetail.appendChild(loadMoreButton);
+        });
+      });
     }
   });
 }

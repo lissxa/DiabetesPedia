@@ -302,16 +302,7 @@
                             <div
                               class="horizontal-divider bg-body-secondary"
                             ></div>
-                            <!-- <div class="mb-3">
-                              <button
-                                id="calculateBtn"
-                                class="btn btn-secondary"
-                                type="button"
-                              >
-                                <i class="fas fa-calculator me-2"></i>Calculate
-                                BMI
-                              </button>
-                            </div> -->
+
                             <div>
                               <label
                                 for="bmi-result"
@@ -371,7 +362,7 @@
                             <!-- Hypertension -->
                             <div class="mb-3">
                               <label class="form-label fw-semibold"
-                                >Hypertension</label
+                                >Have you ever been diagnosed with hypertension (high blood pressure)?</label
                               >
                               <div class="form-check">
                                 <input
@@ -380,7 +371,6 @@
                                   name="hypertension"
                                   id="hypertension-no"
                                   value="0"
-                                  checked
                                   required
                                 />
                                 <label
@@ -408,7 +398,7 @@
                             <!-- Heart Disease -->
                             <div class="mb-3">
                               <label class="form-label fw-semibold"
-                                >Heart Disease</label
+                                >Have you ever been diagnosed with heart disease (eg: coronary heart disease, heart failure, arrhythmia, or other heart condition)?</label
                               >
                               <div class="form-check">
                                 <input
@@ -417,7 +407,6 @@
                                   name="heart_disease"
                                   id="heart-disease-no"
                                   value="0"
-                                  checked
                                   required
                                 />
                                 <label
@@ -447,7 +436,7 @@
                               <label
                                 class="form-label fw-semibold"
                                 for="smoking-history"
-                                >Smoking History</label
+                                >Do you have a history of smoking?</label
                               >
                               <select
                                 class="form-select"
@@ -576,16 +565,13 @@
       </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-    <!-- BMI Calculator Script -->
     <script
       type="module"
       src="/src/scripts/components/log-new-entry/bmi.js"
     ></script>
 
-    <!-- Diabetes Prediction Script -->
     <script
       type="module"
       src="/src/scripts/components/log-new-entry/predict.js"

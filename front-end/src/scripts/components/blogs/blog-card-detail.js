@@ -17,7 +17,7 @@ class BlogCardDetail extends HTMLElement {
             <h6 class="upload-datetime">${this._blog.datetime}</h6>
             <h5 class="card-title fw-semibold fs-4">${this._blog.title}</h5>
             <p class="card-text multi-line-ellipsis--mask h-100">${this._blog.desc}</p>
-            <a href="#" class="card-button btn btn-secondary fw-semibold fs-6 mt-2"
+            <a href="/blog-detail" class="card-button btn btn-secondary fw-semibold fs-6 mt-2"
               id="${this._blog.id}-button">Read More</a>
           </div>
         </div>

@@ -40,6 +40,34 @@ class SignUpForm extends HTMLElement {
         .form-check-label {
           margin-left: 0.25rem;
         }
+          .btn-loading {
+        position: relative;
+        pointer-events: none;
+        }
+        .btn-loading::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid transparent;
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s;
+        }
+        .btn-loading.active::after {
+          opacity: 1;
+        }
+        @keyframes spin {
+          from { transform: rotate(0turn); }
+          to { transform: rotate(1turn); }
+        }
       </style>
 
       <div class="modal-dialog modal-xl modal-dialog-centered">

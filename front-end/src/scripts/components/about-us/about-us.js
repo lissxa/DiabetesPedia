@@ -96,6 +96,7 @@ class AboutUs extends HTMLElement {
                                 <div class="card-body">
                                     <h5 class="card-title fs-3 fw-bolder">Claresta Ratna Cong</h5>
                                     <p class="card-text">UI/UX Designer + Front End Developer</p>
+                                    <p class="card-text"><a href="https://www.linkedin.com/in/clarestaratnacong" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +107,8 @@ class AboutUs extends HTMLElement {
                             <div class="card p-2 rounded-3">
                                 <div class="card-body">
                                     <h5 class="card-title fs-3 fw-bolder">Lisa</h5>
-                                    <p class="card-text">Front End Developer + Back End Developer</p>
+                                    <p class="card-text">Front End + Back End Developer</p>
+                                    <p class="card-text"><a href="https://www.linkedin.com/in/lisa-ang-516792234" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +120,7 @@ class AboutUs extends HTMLElement {
                                 <div class="card-body">
                                     <h5 class="card-title fs-3 fw-bolder">Maria Stephanie R.</h5>
                                     <p class="card-text">Machine Learning</p>
+                                    <p class="card-text"><a href="https://www.linkedin.com/in/mariaawen" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>
                         </div>
@@ -129,6 +132,7 @@ class AboutUs extends HTMLElement {
                                 <div class="card-body">
                                     <h5 class="card-title fs-3 fw-bolder">Valencia Sutio</h5>
                                     <p class="card-text">Machine Learning</p>
+                                    <p class="card-text"><a href="https://www.linkedin.com/in/valenciasutio" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +144,7 @@ class AboutUs extends HTMLElement {
                                 <div class="card-body">
                                     <h5 class="card-title fs-3 fw-bolder">Richelle Vania T.</h5>
                                     <p class="card-text">Machine Learning</p>
+                                    <p class="card-text"><a href="https://www.linkedin.com/in/richellevaniathionanda" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>
                         </div>
