@@ -7,14 +7,21 @@ class PredictionResult {
   }
 
   init() {
+    const currentUser = JSON.parse(
+      localStorage.getItem("currentUser") || "null"
+    );
+
+    if (!currentUser || !currentUser.id) {
+      this.displayLoginRequired();
+      return;
+    }
+
     const historyPrediction = sessionStorage.getItem(
       "selectedHistoryPrediction"
     );
     const currentPrediction = sessionStorage.getItem(
       "diabetesPredictionResult"
     );
-
-    const currentUser = JSON.parse(localStorage.getItem("currentUser") || {});
 
     let resultData = null;
     let isHistoryPrediction = false;
@@ -40,6 +47,37 @@ class PredictionResult {
 
     const result = JSON.parse(resultData);
     this.displayResult(result, isHistoryPrediction);
+  }
+
+  displayLoginRequired() {
+    this.resultContainer.innerHTML = `
+    <div class="card border-0 shadow-lg">
+      <div class="card-body text-center py-5">
+        <div class="mb-4">
+          <i class="bi-person-x fs-1 text-warning"></i>
+        </div>
+        <h3 class="text-warning fw-bold mb-3">Login Required</h3>
+        <p class="text-muted mb-4 fs-5">
+          You must be logged in to view diabetes prediction results.
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+          <button 
+            class="btn btn-primary px-4"
+            data-bs-toggle="modal" 
+            data-bs-target="#signInModal"
+          >
+            <i class="bi-box-arrow-in-right me-2"></i>Login
+          </button>
+          <button 
+            class="btn btn-outline-secondary px-4"
+            onclick="window.location.href='/'"
+          >
+            <i class="bi-house me-2"></i>Back to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
   }
 
   displayResult(result, isHistoryPrediction = false) {

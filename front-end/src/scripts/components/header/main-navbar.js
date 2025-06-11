@@ -73,6 +73,11 @@ class MainNavbar extends HTMLElement {
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive(
+                  "/information"
+                )}" href="/information">Information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ${isActive(
                   "/about-us"
                 )}" href="/about-us">About Us</a>
               </li>
@@ -118,6 +123,11 @@ class MainNavbar extends HTMLElement {
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive("/blog")}" href="/blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ${isActive(
+                  "/information"
+                )}" href="/information">Information</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link ${isActive(

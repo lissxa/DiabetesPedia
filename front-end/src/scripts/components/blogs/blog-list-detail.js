@@ -38,7 +38,7 @@ class BlogListDetail extends HTMLElement {
       const card = document.createElement("blog-card-detail");
       card.blog = blog;
 
-      wrapper.appendChild(card); // <div class="col-*"><blog-card-detail>...</blog-card-detail></div>
+      wrapper.appendChild(card);
       contentContainer.appendChild(wrapper);
     });
 

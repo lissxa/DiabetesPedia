@@ -24,6 +24,10 @@
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
     <style>
       .min-width-input {
         min-width: 120px;
@@ -98,7 +102,7 @@
         <div class="col-lg-8">
           <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white">
-              <h1 class="card-title mb-0 fs-3">
+              <h1 class="card-title mb-0 fs-3" style="color: #ffffff">
                 <i class="fas fa-heartbeat me-2"></i>
                 Diabetes Risk Assessment
               </h1>
@@ -185,7 +189,6 @@
                                     name="genderInput"
                                     id="gender-male"
                                     value="male"
-                                    checked
                                     required
                                   />
                                   <label
@@ -564,6 +567,34 @@
         </div>
       </div>
     </div>
+
+    <signin-form
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    ></signin-form>
+
+    <signup-form
+      class="modal fade"
+      id="signUpModal"
+      tabindex="-1"
+      aria-labelledby="signUpModalLabel"
+      aria-hidden="true"
+    >
+    </signup-form>
+
+    <footer
+      class="py-5 d-flex flex-column gap-4 padding-common position-relative"
+    >
+      <img
+        src="/src/public/images/logo/logo_landscape_text.png"
+        id="footer-logo"
+        alt=""
+      />
+      <my-footer class="container-fluid"></my-footer>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 

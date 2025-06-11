@@ -17,7 +17,6 @@ class ContactUs extends HTMLElement {
                 </p>
               </div>
 
-              <!-- Contact Form -->
               <div class="card shadow-sm border-0 mb-5">
                 <div class="card-body p-4">
                   <form id="contactForm">

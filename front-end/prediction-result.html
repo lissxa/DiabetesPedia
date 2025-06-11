@@ -37,6 +37,7 @@
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <header class="bg-image-settings position-relative">
@@ -61,15 +62,36 @@
     <div class="main-container">
       <div id="prediction-result-container" class="container mt-5"></div>
 
-      <div class="container text-center mt-4 mb-5">
-        <button
-          class="btn btn-outline-primary"
-          onclick="window.location.href='/log-new-entry'"
-        >
-          <i class="bi bi-arrow-repeat me-2"></i>Start New Assessment
-        </button>
-      </div>
+      <div class="container text-center mt-4 mb-5"></div>
     </div>
+
+    <signin-form
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    ></signin-form>
+
+    <signup-form
+      class="modal fade"
+      id="signUpModal"
+      tabindex="-1"
+      aria-labelledby="signUpModalLabel"
+      aria-hidden="true"
+    >
+    </signup-form>
+
+    <footer
+      class="py-5 d-flex flex-column gap-4 padding-common position-relative"
+    >
+      <img
+        src="/src/public/images/logo/logo_landscape_text.png"
+        id="footer-logo"
+        alt=""
+      />
+      <my-footer class="container-fluid"></my-footer>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

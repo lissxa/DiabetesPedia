@@ -346,7 +346,7 @@ header {
 }
 
 #blog-detail-page header {
-  background-image: url("/src/public/images/homepage/blogs/blog-01.jpg") !important;
+  background-image: url("/src/public/images/blogs/blog-01.jpg") !important;
 }
 
 customer-rating .star-rating span {

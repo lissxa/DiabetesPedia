@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
       heightInput.classList.remove("is-invalid");
     }
 
-    calculateBMI(); // Hitung BMI otomatis saat input berubah
+    calculateBMI();
   });
 
   weightInput.addEventListener("input", () => {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       weightInput.classList.remove("is-invalid");
     }
 
-    calculateBMI(); // Hitung BMI otomatis saat input berubah
+    calculateBMI();
   });
 
   function calculateBMI() {
@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const weight = parseFloat(weightInput.value);
     bmiCategory.className = "";
 
-    // Jika input tidak valid, kosongkan hasil
     if (
       isNaN(height) ||
       height <= 0 ||
@@ -109,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     bmiCategory.innerHTML = `<span class="${categoryClass}">${category}</span>`;
   }
 
-  // Inisialisasi awal
   bmiResult.value = "";
   bmiCategory.textContent = "";
 });

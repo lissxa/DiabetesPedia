@@ -44,7 +44,7 @@ class HomeBanner extends HTMLElement {
     button.type = "btn-tertiary";
     button.btnId = "get-prediction-btn";
     button.btnTagElement = "a";
-    button.setAttribute("href", "/log-new-entry");
+    button.setAttribute("href", "/");
 
     const buttonGroup = this.querySelector("#button-group");
     buttonGroup.insertBefore(button, buttonGroup.firstChild);

@@ -74,7 +74,7 @@ class TheSteps extends HTMLElement {
                 <div class="d-flex flex-column gap-2">
                   <h3 class="card-title fs-3 fw-bolder">Take Action</h3>
                   <p class="card-text fs-6">
-                    Access resources, set reminders, and log progress to stay
+                    Access resources, and log progress to stay
                     proactive
                   </p>
                 </div>

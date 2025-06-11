@@ -1,9 +1,4 @@
 export class DiabetesPrediction {
-  // constructor() {
-  //   this.apiUrl = "http://localhost:8000/predict";
-  //   this.init();
-  // }
-
   constructor() {
     const isLocalhost = window.location.hostname === "localhost";
 

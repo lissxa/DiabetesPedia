@@ -88,12 +88,11 @@
           </div>
           <div class="button-group d-flex align-items-center gap-3">
             <a href="/log-new-entry" class="btn btn-primary fw-semibold btn-lg">
-              <i class="bi bi-plus-circle me-2"></i>Log New Entry
+              <i class="bi bi-plus-circle me-2"></i>Add Prediction
             </a>
           </div>
         </div>
 
-        <!-- Latest Prediction Card -->
         <div id="prediction-card" class="prediction-card" style="display: none">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
@@ -136,7 +135,6 @@
           </div>
         </div>
 
-        <!-- No Prediction Card -->
         <div id="no-prediction-card" class="no-prediction-card">
           <div class="text-center py-5">
             <div class="empty-state-icon">
@@ -153,7 +151,6 @@
         </div>
       </section>
 
-      <!-- Prediction History Section -->
       <section
         id="prediction-history"
         class="padding-common"
@@ -173,6 +170,23 @@
     <div class="padding-common mt-5">
       <div class="horizontal-divider bg-body-secondary"></div>
     </div>
+
+    <signin-form
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      aria-labelledby="signInModalLabel"
+      aria-hidden="true"
+    ></signin-form>
+
+    <signup-form
+      class="modal fade"
+      id="signUpModal"
+      tabindex="-1"
+      aria-labelledby="signUpModalLabel"
+      aria-hidden="true"
+    >
+    </signup-form>
 
     <footer
       class="py-5 d-flex flex-column gap-4 padding-common position-relative"

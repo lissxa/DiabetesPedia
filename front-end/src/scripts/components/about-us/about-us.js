@@ -23,7 +23,7 @@ class AboutUs extends HTMLElement {
 
         <div class="text-center mb-5 reveal">
             <div class="logo-container">
-            <img src="src/public/images/logo/logo_with_text.png" alt="DiabetesPedia Logo" class="mx-auto mb-4" style="max-width: 250px;">
+            <img src="/images/logo/logo_with_text.png" alt="DiabetesPedia Logo" class="mx-auto mb-4" style="max-width: 100px;">
             </div>
             <h2 class="display-4 fw-bold text-gradient-primary mb-4">About DiabetesPedia</h2>
             <div class="divider mx-auto my-4" style="width: 100px; height: 4px; background: linear-gradient(90deg, #4e79ff, #f45a8a);"></div>

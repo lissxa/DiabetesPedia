@@ -2,42 +2,42 @@
   "blogs": [
     {
       "id": 1,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-01.jpg",
+      "imageUrl": "/images/blogs/blog-01.jpg",
       "datetime": "19 Des 2024 | 10:47",
       "title": "Ciri-Ciri Diabetes, Kenali Gejala dan Cara Pencegahannya",
       "desc": "Diabetes merupakan salah satu penyakit kronis yang prevalensinya terus meningkat dari tahun ke tahun. Menurut data Badan Kesehatan Dunia (WHO), Indonesia menempati peringkat ke-7 dunia untuk prevalensi penderita diabetes tertinggi pada tahun 2015. Diperkirakan terdapat sekitar 10 juta orang penderita diabetes di Indonesia pada tahun tersebut. Angka ini diproyeksikan akan terus bertambah jika tidak dilakukan upaya pencegahan yang serius."
     },
     {
       "id": 2,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-02.jpg",
+      "imageUrl": "/images/blogs/blog-02.jpg",
       "datetime": "14 Okt 2024 | 18:00",
       "title": "Siapa Saja yang Berisiko Mengidap Diabetes Tipe 2?",
       "desc": "Diabetes tipe 2 menjadi salah satu jenis diabetes yang paling sering terjadi. Kondisi ini disebabkan sel-sel tubuh yang kurang sensitif terhadap insulin yang diproduksi oleh tubuh secara normal. Lalu, siapa saja yang berisiko mengalami diabetes tipe 2? Tidak ada salahnya kenali lebih banyak mengenai diabetes tipe 2 agar kamu dapat melakukan pencegahan dan penanganan yang tepat terhadap kondisi ini."
     },
     {
       "id": 3,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-03.jpg",
+      "imageUrl": "/images/blogs/blog-03.jpg",
       "datetime": "15 Apr 2025 | 18:00",
       "title": "10 Jenis Makanan dan Minuman Penyebab Diabetes",
       "desc": "Diabetes adalah penyakit kronis yang ditandai dengan kadar gula darah yang tinggi. Glukosa yang merupakan sumber energi utama bagi sel tubuh manusia. Pada penderita diabetes, glukosa tersebut tidak dapat digunakan oleh tubuh."
     },
     {
       "id": 4,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-02.jpg",
+      "imageUrl": "/images/blogs/blog-02.jpg",
       "datetime": "15 Apr 2025 | 18:00",
       "title": "Teknologi dalam Deteksi dan Manajemen Diabetes",
       "desc": "Teknologi modern seperti aplikasi berbasis AI telah menjadi alat penting dalam deteksi dan manajemen diabetes. Aplikasi ini dapat memprediksi risiko diabetes berdasarkan data pribadi seperti pola makan, aktivitas fisik, dan riwayat kesehatan. Dengan algoritma pembelajaran mesin, deteksi risiko menjadi lebih cepat dan akurat."
     },
     {
       "id": 5,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-01.jpg",
+      "imageUrl": "/images/blogs/blog-01.jpg",
       "datetime": "15 Apr 2025 | 18:00",
       "title": "Pentingnya Deteksi Dini Diabetes",
       "desc": "Deteksi dini diabetes membantu mencegah komplikasi seperti penyakit jantung, kerusakan saraf, dan gangguan penglihatan. Tes sederhana seperti pemeriksaan glukosa darah puasa dapat memberikan gambaran awal tentang risiko diabetes. Aplikasi deteksi dapat membantu mengidentifikasi risiko ini dengan lebih mudah."
     },
     {
       "id": 6,
-      "imageUrl": "/src/public/images/homepage/blogs/blog-03.jpg",
+      "imageUrl": "/images/blogs/blog-03.jpg",
       "datetime": "15 Apr 2025 | 18:00",
       "title": "Tipe-Tipe Diabetes yang Perlu Anda Ketahui",
       "desc": "Diabetes sering kali menjadi topik yang dipenuhi dengan informasi yang beragam—mulai dari nasihat kesehatan yang valid hingga mitos yang menyesatkan. Tidak jarang, kesalahpahaman ini membuat penderita diabetes atau mereka yang ingin mencegahnya merasa bingung dan khawatir. Artikel ini akan mengupas beberapa mitos umum tentang diabetes serta memberikan fakta berdasarkan data medis yang terpercaya. Dengan pemahaman yang lebih baik, diharapkan Anda dapat membuat keputusan yang lebih bijak dalam menjaga kesehatan dan mencegah komplikasi penyakit ini."

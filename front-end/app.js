@@ -18,6 +18,7 @@ import "./src/scripts/components/footer/my-footer.js";
 import "./src/scripts/components/blogs/blog-list-detail.js";
 import "./src/scripts/components/blogs/blog-card-detail.js";
 import "./src/scripts/components/blogs/search-blog.js";
+import "./src/scripts/components/information/information.js";
 
 import "./src/scripts/components/about-us/about-us.js";
 
