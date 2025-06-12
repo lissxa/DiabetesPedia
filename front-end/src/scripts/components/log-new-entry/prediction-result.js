@@ -358,7 +358,7 @@ class PredictionResult {
             "amber"
           )}
           ${this.getRecommendationCard(
-            "bi-no-smoking",
+            "bi-lungs",
             "Quit Smoking",
             "Stop smoking and limit alcohol consumption",
             "amber"

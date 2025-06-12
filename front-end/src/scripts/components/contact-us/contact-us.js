@@ -9,7 +9,6 @@ class ContactUs extends HTMLElement {
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <!-- Contact Header -->
               <div class="text-center mb-5">
                 <h2 class="fw-bold text-dark mb-3">Get in touch!</h2>
                 <p class="text-muted">

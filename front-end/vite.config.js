@@ -19,6 +19,7 @@ export default defineConfig({
         lognewentry: resolve(__dirname, "log-new-entry.html"),
         result: resolve(__dirname, "prediction-result.html"),
         notfoundpage: resolve(__dirname, "not-found-page.html"),
+        visualization: resolve(__dirname, "visualization.html"),
       },
     },
   },

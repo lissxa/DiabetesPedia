@@ -1,5 +1,7 @@
 # DiabetesPedia 🌿🔬
 
+[🌐 Website Resmi](https://diabetes-pedia.netlify.app) | [🎬 Product Demo (YouTube)](https://youtu.be/6Q3-OoOHxw4)
+
 ## 🚀 Pendahuluan
 
 **DiabetesPedia** adalah platform web inovatif yang didedikasikan untuk memberdayakan masyarakat Indonesia dalam upaya deteksi dini dan pencegahan diabetes. Dengan memanfaatkan teknologi Machine Learning, kami menyediakan prediksi status diabetes yang cepat, personalisasi saran kesehatan, serta akses ke artikel edukasi yang komprehensif.
@@ -59,7 +61,7 @@ Pastikan Anda memiliki hal-hal berikut terinstal di sistem Anda:
 1.  **Kloning Repositori:**
 
     ```bash
-    git clone [https://github.com/lissxa/DiabetesPedia.git](https://github.com/lissxa/DiabetesPedia.git)
+    git clone https://github.com/lissxa/DiabetesPedia.git
     cd DiabetesPedia
     ```
 

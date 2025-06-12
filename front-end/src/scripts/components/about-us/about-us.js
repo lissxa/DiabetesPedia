@@ -94,8 +94,8 @@ class AboutUs extends HTMLElement {
                         <div class="card p-4 rounded-4 justify-content-end bg-image-settings">
                             <div class="card p-2 rounded-3">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-3 fw-bolder">Claresta Ratna Cong</h5>
-                                    <p class="card-text">UI/UX Designer + Front End Developer</p>
+                                    <h5 class="card-title fs-3 fw-bolder">Claresta Ratna C.</h5>
+                                    <p class="card-text">UI/UX + Front End Developer</p>
                                     <p class="card-text"><a href="https://www.linkedin.com/in/clarestaratnacong" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                                 </div>
                             </div>

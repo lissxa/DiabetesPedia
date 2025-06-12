@@ -438,7 +438,7 @@ about-us #about-us-team .row .about-us > .card {
 }
 
 about-us #about-us-team .about-us:first-child > .card {
-  background-image: url(/src/public/images/about-us/claresta.png);
+  background-image: url(/src/public/images/about-us/claresta_ratna.png);
 }
 
 about-us #about-us-team .about-us:nth-child(2) > .card {
@@ -446,7 +446,7 @@ about-us #about-us-team .about-us:nth-child(2) > .card {
 }
 
 about-us #about-us-team .about-us:nth-child(3) > .card {
-  background-image: url(/src/public/images/about-us/maria.png);
+  background-image: url(/src/public/images/about-us/maria_stephanie.png);
 }
 
 about-us #about-us-team .about-us:nth-child(4) > .card {
@@ -454,7 +454,7 @@ about-us #about-us-team .about-us:nth-child(4) > .card {
 }
 
 about-us #about-us-team .about-us:last-child > .card {
-  background-image: url(/src/public/images/about-us/richelle.png);
+  background-image: url(/src/public/images/about-us/richelle_vania.png);
 }
 
 my-footer .nav-link {

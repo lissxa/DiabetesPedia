@@ -1,6 +1,3 @@
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 class BigButtonContainer extends HTMLElement {
   constructor() {
     super();
