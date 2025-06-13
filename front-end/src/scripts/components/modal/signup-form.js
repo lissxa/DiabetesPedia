@@ -6,70 +6,16 @@ class SignUpForm extends HTMLElement {
   connectedCallback() {
     this.render();
     this.setupPasswordToggles();
+    this.setupFormSubmit();
   }
 
   render() {
     const template = document.createElement("template");
     template.innerHTML = `
-      <style>
-        .password-container {
-          position: relative;
-        }
-
-        .password-toggle {
-          position: absolute;
-          right: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-          background: none;
-          border: none;
-          color: #6c757d;
-          cursor: pointer;
-          padding: 0 5px;
-        }
-
-        .password-toggle:hover {
-          color: #495057;
-        }
-
-        #inputPasswordSignUp,
-        #reEnterPasswordSignUp {
-          padding-right: 40px;
-        }
-
-        .form-check-label {
-          margin-left: 0.25rem;
-        }
-          .btn-loading {
-        position: relative;
-        pointer-events: none;
-        }
-        .btn-loading::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        border: 3px solid transparent;
-        border-top-color: white;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        opacity: 0;
-        transition: opacity 0.3s;
-        }
-        .btn-loading.active::after {
-          opacity: 1;
-        }
-        @keyframes spin {
-          from { transform: rotate(0turn); }
-          to { transform: rotate(1turn); }
-        }
-      </style>
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header p-4 bg-lightblue02">
@@ -125,7 +71,13 @@ class SignUpForm extends HTMLElement {
                     </div>
 
                     <div class="mb-3">
-                      <button class="btn btn-primary fw-semibold btn-lg w-100" type="submit">Sign Up</button>
+                      <button 
+                      id="signUpButton" 
+                      class="btn btn-primary fw-semibold btn-lg w-100" 
+                      type="submit"
+                      >
+                        Sign Up
+                      </button>
                     </div>
 
                     <div class="text-center">
@@ -168,6 +120,38 @@ class SignUpForm extends HTMLElement {
       toggle("#inputPasswordSignUp", "#togglePassword1");
       toggle("#reEnterPasswordSignUp", "#togglePassword2");
     });
+  }
+
+  setupFormSubmit() {
+    const form = this.querySelector("#signUpForm");
+    const button = this.querySelector("#signUpButton");
+
+    if (form && button) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        this.showLoading(true);
+
+        setTimeout(() => {
+          this.showLoading(false);
+        }, 2000);
+      });
+    }
+  }
+
+  showLoading(show) {
+    const button = this.querySelector("#signUpButton");
+    if (button) {
+      if (show) {
+        button.disabled = true;
+        button.classList.add("btn-loading-state");
+        button.innerHTML =
+          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating Account...';
+      } else {
+        button.disabled = false;
+        button.classList.remove("btn-loading-state");
+        button.textContent = "Sign Up";
+      }
+    }
   }
 }
 

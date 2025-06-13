@@ -1,0 +1,74 @@
+.password-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.password-toggle:hover {
+  color: #495057;
+}
+
+#inputPasswordSignIn,
+#inputPasswordSignUp,
+#reEnterPasswordSignUp {
+  padding-right: 40px;
+}
+
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-loading.active::after {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.form-check-label {
+  margin-left: 0.25rem;
+}
+
+.btn-loading-state {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading-state .spinner-border {
+  margin-right: 8px;
+}
